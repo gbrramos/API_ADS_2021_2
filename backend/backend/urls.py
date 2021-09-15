@@ -1,10 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-
-from . import views
+from Colaboradores.views import lista 
 
 urlpatterns = [
     path('/', admin.site.urls),
-    path('', include('Colaboradores.urls')),
+    path('colaboradores/', lista),
     
 ]
