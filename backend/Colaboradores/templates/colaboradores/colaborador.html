@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Colaboradores {% endblock %}
+
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>{{ colaborador.nomeCompleto}}</h1>
+    <p>{{colaborador.cpf}}</p>
+    <p>{{colaborador.matricula}}</p>
+    <p>{{colaborador.nomeCompleto}}</p>
+    <p>{{colaborador.dataAdmissao}}</p>
+    <p>{{colaborador.data}}</p>
+    <p>{{colaborador.dataDemissao}}</p>
+    <p>{{colaborador.funcao}}</p>
+    <p>{{colaborador.situacaoCadastro}}</p>
+    <p>{{colaborador.created_at}}</p>
+    <p>{{colaborador.updated_at}}</p>
+</div>
+{% endblock %}
