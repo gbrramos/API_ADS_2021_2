@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Lista de Colaboradores {% endblock %}
+{% block title %} Lista de Postos De Trabalho {% endblock %}
 
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Lista de Colaboradores</h1>
-    <a id="add-link" href="novocolaborador/">
+    <h1>Lista de Postos De Trabalho</h1>
+    <a id="add-link" href="novo/">
         <div class="col-2 add-div">
             <i class='bx bxs-add-to-queue'></i> Adicionar
         </div>
@@ -22,11 +22,11 @@
         </ul>
     {% endif %}
     <ul class="colaborador-list">
-        {% for colaborador in colaboradores %}
+        {% for posto in postos %}
         <li class="colaborador-item">
-            <span><a href="colaborador/{{colaborador.id}}">{{colaborador.nomeCompleto}}</a></span>
-            <a href="deleteColaborador/{{colaborador.id}}"><span><i class='bx bx-trash'></i></span></a>
-            <a href="editColaborador/{{colaborador.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
+            <span><a href="view/{{posto.id}}">{{posto.descricao}}</a></span>
+            <a href="delete/{{posto.id}}"><span><i class='bx bx-trash'></i></span></a>
+            <a href="editar/{{posto.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
         </li>
         {% endfor %}
     </ul>

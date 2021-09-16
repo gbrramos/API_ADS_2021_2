@@ -16,13 +16,10 @@ def novocolaborador(request):
             colaborador = form.save(commit=False)
             colaborador.tipoDeCobertura = 'fixa'
             colaborador.save()
-            return(redirect('/'))
+            return(redirect('/colaboradores'))
     else:
         form = ColaboradorForm()
         return render(request, 'colaboradores/addColaborador.html', {'form':form})
-
-def helloWorld(request):
-    return HttpResponse('Hellor World!')
 
 def colaboradorList(request):
     colaboradores = Colaborador.objects.all().order_by('-created_at')
@@ -41,7 +38,7 @@ def editColaborador(request, id):
 
         if(form.is_valid()):
             colaborador.save()
-            return redirect('/')
+            return redirect('/colaboradores')
         else:
             return render(request, 'colaboradores/editColaborador.html', {'form': form, 'colaborador': colaborador})
     else:

@@ -11,8 +11,8 @@ class Colaborador(models.Model):
     )
 
     cpf = models.CharField(max_length=11)
-    matricula = models.TextField()
-    nomeCompleto = models.TextField(max_length=255)
+    matricula = models.CharField(max_length=50)
+    nomeCompleto = models.CharField(max_length=255)
     dataAdmissao = models.DateField()
     dataDemissao = models.DateField(null=True)
     funcao = TextField(max_length=255)
