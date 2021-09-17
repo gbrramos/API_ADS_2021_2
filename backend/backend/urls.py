@@ -1,6 +1,7 @@
 from Colaboradores import views
 from PostosDeTrabalho import views
 from Clientes import views
+from Usuarios import views
 from django.contrib import admin
 from django.urls import path, include
 
@@ -10,5 +11,5 @@ urlpatterns = [
     path('colaboradores/', include('Colaboradores.urls')),
     path('postosTrabalho/', include('PostosDeTrabalho.urls')),
     path('clientes/', include('Clientes.urls')),
-
+    path('usuarios/', include('Usuarios.urls')),
 ]
