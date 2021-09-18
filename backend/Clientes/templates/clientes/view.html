@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-{% block title %} Posto de Trabalho {% endblock %}
+{% block title %} Clientes {% endblock %}
 
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Posto de Trabalho {{ posto.descricao }}</h1>
-    <p>{{ posto.escala }}</p>
-    <p>{{ posto.numero_cadastro }}</p>
+    <h1>Cliente: {{ cliente.nome_fantasia }}</h1>
+    <p>Razão Social: {{ cliente.razao_social }}</p>
+    <p>CNPJ: {{ cliente.cnpj }}</p>
+    <p>Contato: {{ cliente.contato }}</p>
+    <p>Endereço: {{ cliente.endereco }}</p>
 </div>
 {% endblock %}

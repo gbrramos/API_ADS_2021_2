@@ -7,7 +7,7 @@
     <h1>Adicione um Cliente</h1>
     <form method="POST">
         {% csrf_token %}
-	        {{ form.as_p }}
+            {{ form.as_p }}
         <input type="submit" class="btn btn-success" value="Salvar">
     </form>
 

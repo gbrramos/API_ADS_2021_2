@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Editando '{{ cliente.nome_fantasia }}'{% endblock %}
+{% block title %}Editando '{{ usuario.username }}'{% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Editando '{{ cliente.nome_fantasia }}'</h1>
+    <h1>Editando '{{ usuario.username }}'</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}

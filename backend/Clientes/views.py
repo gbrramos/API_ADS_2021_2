@@ -33,8 +33,8 @@ def store(request):
         return render(request, 'clientes/novo.html', {'form':form})
 
 def lista(request):
-    clis = Clientes.objects.all().order_by('-created_at')
-    return render(request, 'clientes/lista.html', {'clientes' : clis})
+    clientes = Clientes.objects.all()
+    return render(request, 'clientes/lista.html', {'clientes' : clientes})
 
 def editar(request, id):
     cli = get_object_or_404(Clientes, pk=id)
@@ -52,8 +52,8 @@ def editar(request, id):
         return render(request, 'clientes/editar.html', {'form': form, 'cliente': cli})
 
 def view(request, id):
-    posto = get_object_or_404(Clientes, pk=id)
-    return render(request, 'postosdetrabalho/view.html', {'posto': posto})
+    cliente = get_object_or_404(Clientes, pk=id)
+    return render(request, 'clientes/view.html', {'cliente': cliente})
 
 
 def delete(request, id):

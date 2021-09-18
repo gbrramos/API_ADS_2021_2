@@ -48,4 +48,4 @@ def deleteColaborador(request, id):
     colaborador = get_object_or_404(Colaborador, pk=id)
     colaborador.delete()
     messages.info(request, 'Colaborador deletado com Sucesso!')
-    return redirect('/')
+    return redirect('/colaboradores')

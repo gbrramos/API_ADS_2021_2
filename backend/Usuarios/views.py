@@ -12,9 +12,9 @@ def novo(request):
         form = UsuariosForm(request.POST)
 
         if form.is_valid():
-            posto = form.save(commit=False)
-            posto.save()
-            return(redirect('../lista'))
+            user = form.save(commit=False)
+            user.save()
+            return(redirect('usuarios/lista'))
     else:
         form = UsuariosForm()
         return render(request, 'usuarios/novo.html', {'form':form})
@@ -24,40 +24,39 @@ def store(request):
         form = UsuariosForm(request.POST)
 
         if form.is_valid():
-            cli = form.save(commit=False)
-            cli.tipoDeCobertura = 'fixa'
-            cli.save()
-            return(redirect('/lista'))
+            user = form.save(commit=False)
+            user.save()
+            return(redirect('usuarios/lista'))
     else:
         form = UsuariosForm()
         return render(request, 'usuarios/novo.html', {'form':form})
 
 def lista(request):
-    clis = Usuarios.objects.all().order_by('-created_at')
-    return render(request, 'usuarios/lista.html', {'usuarios' : clis})
+    user = Usuarios.objects.all()
+    return render(request, 'usuarios/lista.html', {'usuarios' : user})
 
 def editar(request, id):
-    cli = get_object_or_404(Usuarios, pk=id)
-    form = UsuariosForm(instance=cli)
+    user = get_object_or_404(Usuarios, pk=id)
+    form = UsuariosForm(instance=user)
 
     if(request.method == 'POST'):
-        form = UsuariosForm(request.POST, instance=cli)
+        form = UsuariosForm(request.POST, instance=user)
 
         if(form.is_valid()):
-            cli.save()
-            return redirect('/usuarios/lista')
+            user.save()
+            return redirect('usuarios/lista')
         else:
-            return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': cli})
+            return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': user})
     else:
-        return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': cli})
+        return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': user})
 
 def view(request, id):
-    posto = get_object_or_404(Usuarios, pk=id)
-    return render(request, 'postosdetrabalho/view.html', {'posto': posto})
+    user = get_object_or_404(Usuarios, pk=id)
+    return render(request, 'usuarios/view.html', {'user': user})
 
 
 def delete(request, id):
-    cli = get_object_or_404(Usuarios, pk=id)
-    cli.delete()
+    user = get_object_or_404(Usuarios, pk=id)
+    user.delete()
     messages.info(request, 'Usuário deletado com Sucesso!')
     return redirect('/usuarios/lista')

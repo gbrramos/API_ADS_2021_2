@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %} Posto de Trabalho {% endblock %}
+{% block title %} Usuario {% endblock %}
 
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Posto de Trabalho {{ posto.descricao }}</h1>
-    <p>{{ posto.escala }}</p>
-    <p>{{ posto.numero_cadastro }}</p>
+    <h1>Usuario {{ user.nome }}</h1>
+    <p>{{ user.username }}</p>
+    <p>{{ user.perfil }}</p>
 </div>
 {% endblock %}

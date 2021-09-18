@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% block title %} Lista de Clientes {% endblock %}
+{% block title %} Lista de Usuário {% endblock %}
 
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Lista de Clientes</h1>
+    <h1>Lista de Usuários</h1>
     <a id="add-link" href="novo/">
         <div class="col-2 add-div">
             <i class='bx bxs-add-to-queue'></i> Adicionar
@@ -24,9 +24,9 @@
     <ul class="colaborador-list">
         {% for user in usuarios %}
         <li class="colaborador-item">
-            <span style="padding-left: 20px"><a href="view/{{cli.id}}">{{user.nome}}</a></span>
-            <a href="delete/{{cli.id}}"><span><i class='bx bx-trash'></i></span></a>
-            <a href="editar/{{cli.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
+            <span style="padding-left: 20px"><a href="view/{{user.id}}">{{user.username}}</a></span>
+            <a href="delete/{{user.id}}"><span><i class='bx bx-trash'></i></span></a>
+            <a href="editar/{{user.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
         </li>
         {% endfor %}
     </ul>
