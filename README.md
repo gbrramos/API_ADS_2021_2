@@ -16,3 +16,8 @@
   <a href =""> Backlog </a>  • 
 </p>
 <hr>
+<h3> :dart: Objetivos do Projeto</h2>
+<p>Criar uma aplicação capaz de emitir relatórios mensais apresentando o quadro de presença de colaboradores em postos de trabalhos acordados em contrato, para uma empresa de tercerização de serviços. </p>
+<hr>
+
+
