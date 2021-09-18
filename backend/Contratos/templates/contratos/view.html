@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Contrato {% endblock %}
+
+
+{% block content %}
+
+<div class="offset-1 col-10 list-div">
+    <h1>Contrato {{ contrato.numero }}</h1>
+    <p>{{ contrato.valor }}</p>
+    <p>{{ contrato.cliente_id }}</p>
+    <p>{{contrato.cliente}}</p>
+    {% for contrato in postosDeTrabalho %}
+    <p>{{ contrato }}</p>
+    {% endfor %}
+
+    <p>{{contrato.postoDeTrabalho }}</p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nº Contrato</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Postos De Trabalho</th>
+        </tr>
+    </thead>
+    <tbody>
+
+            <tr>
+                
+                <th scope="row">{{ contrato.id }}</th>
+                <td>{{ contrato.valor }}</td>
+                <td>{{ contrato.cliente_id }}</td>    
+                <td>{{ contrato.postoDeTrabalho }}</td>
+                
+            </tr>
+    </tbody>
+{% endblock %}

@@ -9,9 +9,9 @@ class Clientes(models.Model):
     razao_social = models.CharField(max_length=50)
     cnpj = models.CharField(max_length=50)
     contato = models.CharField(max_length=50)
-    funcao = CharField(max_length=255)
+    endereco = CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.nome
+        return self.nome_fantasia
