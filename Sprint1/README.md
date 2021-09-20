@@ -33,18 +33,18 @@
 <p></p>
 <hr>
 <h3> CRUD Colaboradores</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Coloboradores.gif"/>
 <hr>
 <h3>CRUD Clientes</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Clientes.gif"/>
 <hr>
 <h3>CRUD Usuários</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Usuario.gif"/>
 <hr>
 <h3>CRUD Contratos</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Contratos.gif"/>
 <hr>
 <h3>CRUD Postos de Trabalho</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Postos-de-Trabalho.gif"/>
 <hr>
 
