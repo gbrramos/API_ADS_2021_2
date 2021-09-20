@@ -10,8 +10,8 @@
   <a href ="https://github.com/gbrramos/API_ADS_2021_2#-dart-objetivos-do-projeto"> Objetivos do Projeto</a>  • 
   <a href ="https://github.com/gbrramos/API_ADS_2021_2#pushpin-requisitos-do-cliente"> Requisitos do Cliente</a>  • 
   <a href ="https://github.com/gbrramos/API_ADS_2021_2#arrows_counterclockwise-sprints"> Sprints</a>  • 
-   <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#wrench-ferramentas--tecnologias-utilizadas"> Ferramentas Utilizadas</a>  • 
-  <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#spiral_calendar-cronograma-sprints"> Cronograma </a>  • 
+   <a href ="https://github.com/gbrramos/API_ADS_2021_2#wrench-ferramentas--tecnologias-utilizadas"> Ferramentas Utilizadas</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#arrows_counterclockwise-cronograma-sprints"> Cronograma </a>  • 
   <a href ="https://github.com/gbrramos/API_ADS_2021_2#memo-product-backlog"> Backlog </a>  • 
 </p>
 <hr>
