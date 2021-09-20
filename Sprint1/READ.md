@@ -9,9 +9,9 @@
 </p>
 <hr>
 <p align="center">
-  <a href ="https://github.com/UniversalDevs/Projeto_API#-dart-objetivos-do-projeto"> Informações Importantes</a>  • 
-  <a href ="https://github.com/UniversalDevs/Projeto_API#-dart-objetivos-do-projeto"> Burndown Chart</a>  • 
-  <a href ="https://github.com/UniversalDevs/Projeto_API#-dart-objetivos-do-projeto"> Demonstração das Funcionadades</a>  • 
+  <a href =""> Informações Importantes</a>  • 
+  <a href =""> Burndown Chart</a>  • 
+  <a href =""> Demonstração das Funcionadades</a>  • 
 </p>
 <hr>
 
@@ -29,7 +29,7 @@
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/sprint1_burndown.png" width="500"/>
 <hr>
 
-<h3>Site Institucional</h3>
+<h3>CRUDs</h3>
 <p></p>
 <p></p>
 <hr>
