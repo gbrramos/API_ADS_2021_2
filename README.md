@@ -27,6 +27,7 @@
 <p>:ballot_box_with_check: Emissão de Relatórios</p>
 
 <hr>
+<h3>:arrows_counterclockwise: Sprints</h3>
 <p>:white_check_mark: <a href="">Kick-off do Projeto</a> - 16/08 à 22/08</p>
 <p>:white_check_mark: <a href="">Sprint 1</a> - 30/08 à 19/09</p>
 <p>:white_check_mark: <a href="">Sprint 2</a> - 20/09 à 10/10</p>
