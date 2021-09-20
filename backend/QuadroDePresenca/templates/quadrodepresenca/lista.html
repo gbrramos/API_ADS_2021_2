@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Quadro De Presença {% endblock %}
+
+
+{% block content %}
+<div class="col-12 list-div">
+    <h1>Quadros de Presença</h1>
+    <a id="add-link" href="novo/">
+        <div class="col-2 add-div">
+            <i class='bx bxs-add-to-queue'></i> Adicionar
+        </div>
+    </a>
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <ul class="quadro-list">
+        {% for q in quadros %}
+        <li class="quadro-item" style="margin-top: 10px; list-style-type: none;">
+            <p>
+                <a class="btn" data-toggle="collapse" href="#collapseExample_{{q.id}}" role="button" aria-expanded="false" aria-controls="collapseExample_{{q.id}}">
+                  {{q.numero_cadastro}}
+                </a>
+              </p>
+              <div class="collapse" id="collapseExample_{{q.id}}">
+                <div class="card card-body">
+                    {{q.descricao}}
+                </div>
+              </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
