@@ -27,7 +27,12 @@
 <p>:ballot_box_with_check: Emissão de Relatórios</p>
 
 <hr>
-
+<p>:white_check_mark: <a href="">Kick-off do Projeto</a> - 16/08 à 22/08</p>
+<p>:white_check_mark: <a href="">Sprint 1</a> - 30/08 à 19/09</p>
+<p>:white_check_mark: <a href="">Sprint 2</a> - 20/09 à 10/10</p>
+<p>:white_check_mark: <a href="">Sprint 3 </a> - 18/10 à 07/11</p>
+<p>:white_check_mark: <a href="">Sprint 4 </a> - 08/11 à 28/11</p>
+<hr>
 <h3>:memo: Product Backlog</h3>
 <p>Lista de Itens e funcionalidades a serem desenvolvidas e implementadas.
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/BacklogProduto.PNG">
@@ -37,6 +42,7 @@
 <h3>:wrench: Ferramentas & Tecnologias utilizadas</h3>
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/FerramentasUtilizadasAPI.PNG"/>
 <hr>
+
 
 <h2>:globe_with_meridians: Equipe de Desenvolvedores</h2>
   <table align="left">
