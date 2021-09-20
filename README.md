@@ -26,6 +26,12 @@
 <p>:ballot_box_with_check: Lançamento do quadro de presenças</p>
 <p>:ballot_box_with_check: Emissão de Relatórios</p>
 
+<hr>
+
+<h3>:memo: Product Backlog</h3>
+<p>Lista de Itens e funcionalidades a serem desenvolvidas e implementadas.
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/BacklogProduto.PNG">
+
 
 <hr>
 <h3>:wrench: Ferramentas & Tecnologias utilizadas</h3>
