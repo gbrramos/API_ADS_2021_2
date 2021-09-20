@@ -28,7 +28,7 @@
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/sprint1_burndown.png" width="500"/>
 <hr>
 
-<h3>CRUDs</h3>
+<h3>Demonstração das Funcionalidades</h3>
 <p></p>
 <p></p>
 <hr>
