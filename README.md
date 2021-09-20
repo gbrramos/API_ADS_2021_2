@@ -32,7 +32,7 @@
 <p>:white_check_mark: Sprint 1 - 30/08 à 19/09</p>
 <p>:white_check_mark: Sprint 2 - 20/09 à 10/10</p>
 <p>:white_check_mark: Sprint 3 - 18/10 à 07/11</p>
-<p>:white_check_mark: >Sprint 4 - 08/11 à 28/11</p>
+<p>:white_check_mark: Sprint 4 - 08/11 à 28/11</p>
 <hr>
 <h3>:arrows_counterclockwise: Cronograma Sprints</h3>
 <h3>:arrows_counterclockwise: Sprint 1</h3>
