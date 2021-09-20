@@ -14,22 +14,11 @@ def novo(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            return(redirect('usuarios/lista'))
+            return(redirect('../lista'))
     else:
         form = UsuariosForm()
         return render(request, 'usuarios/novo.html', {'form':form})
 
-def store(request):
-    if request.method == 'POST':
-        form = UsuariosForm(request.POST)
-
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.save()
-            return(redirect('usuarios/lista'))
-    else:
-        form = UsuariosForm()
-        return render(request, 'usuarios/novo.html', {'form':form})
 
 def lista(request):
     user = Usuarios.objects.all()
@@ -44,7 +33,7 @@ def editar(request, id):
 
         if(form.is_valid()):
             user.save()
-            return redirect('usuarios/lista')
+            return redirect('/usuarios/lista')
         else:
             return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': user})
     else:

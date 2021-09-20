@@ -10,5 +10,6 @@ class ColaboradorForm(forms.ModelForm):
 
         widgets = {
             'dataAdmissao': forms.TextInput(attrs={'data-mask':"00/00/0000"}),
-            'dataDemissao': forms.TextInput(attrs={'data-mask': "00/00/0000"})
+            'dataDemissao': forms.TextInput(attrs={'data-mask': "00/00/0000"}),
+            'cpf': forms.TextInput(attrs={'data-mask': "000.000.000-00"})
             }

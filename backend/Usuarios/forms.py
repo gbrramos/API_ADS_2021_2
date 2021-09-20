@@ -7,3 +7,7 @@ class UsuariosForm(forms.ModelForm):
     class Meta:
         model =  Usuarios
         fields = ('nome', 'username', 'password', 'perfil')
+
+        widgets = {
+        'password': forms.PasswordInput(),
+        }

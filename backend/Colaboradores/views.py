@@ -13,13 +13,14 @@ def novocolaborador(request):
         form = ColaboradorForm(request.POST)
 
         if form.is_valid():
-            colaborador = form.save(commit=False)
-            colaborador.tipoDeCobertura = 'fixa'
-            colaborador.save()
-            return(redirect('/colaboradores'))
+            posto = form.save(commit=False)
+            posto.save()
+            return(redirect('../lista'))
     else:
         form = ColaboradorForm()
         return render(request, 'colaboradores/addColaborador.html', {'form':form})
+
+
 
 def colaboradorList(request):
     colaboradores = Colaborador.objects.all().order_by('-created_at')

@@ -14,23 +14,12 @@ def novo(request):
         if form.is_valid():
             posto = form.save(commit=False)
             posto.save()
-            return(redirect('/postosTrabalho'))
+            return(redirect('../lista'))
     else:
         form = PostosDeTrabalhoForms()
         return render(request, 'postosdetrabalho/novo.html', {'form':form})
 
-def store(request):
-    if request.method == 'POST':
-        form = PostosDeTrabalhoForms(request.POST)
 
-        if form.is_valid():
-            posto = form.save(commit=False)
-            posto.tipoDeCobertura = 'fixa'
-            posto.save()
-            return(redirect('/postosDeTrabalho'))
-    else:
-        form = PostosDeTrabalhoForms()
-        return render(request, 'colaboradores/addColaborador.html', {'form':form})
 
 def lista(request):
     postos = PostoDeTrabalho.objects.all().order_by('-created_at')
@@ -45,7 +34,7 @@ def edit(request, id):
 
         if(form.is_valid()):
             posto.save()
-            return redirect('/postosTrabalho')
+            return redirect('/postosTrabalho/lista')
         else:
             return render(request, 'postosdetrabalho/editar.html', {'form': form, 'posto': posto})
     else:
@@ -60,4 +49,4 @@ def delete(request, id):
     posto = get_object_or_404(PostoDeTrabalho, pk=id)
     posto.delete()
     messages.info(request, 'Posto de Trabalho deletado com Sucesso!')
-    return redirect('/postosTrabalho')
+    return redirect('/postosTrabalho/lista')

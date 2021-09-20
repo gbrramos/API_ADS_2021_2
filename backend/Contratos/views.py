@@ -12,24 +12,14 @@ def novo(request):
         form = ContratosForms(request.POST)
 
         if form.is_valid():
-            contrato = form.save(commit=False)
-            contrato.save()
-            return(redirect('/contratos/lista'))
+            posto = form.save(commit=False)
+            posto.save()
+            return(redirect('../lista'))
     else:
         form = ContratosForms()
         return render(request, 'contratos/novo.html', {'form':form})
 
-def store(request):
-    if request.method == 'POST':
-        form = ContratosForms(request.POST)
 
-        if form.is_valid():
-            contrato = form.save(commit=False)
-            contrato.save()
-            return(redirect('/contratos'))
-    else:
-        form = ContratosForms()
-        return render(request, 'contratos/novo.html', {'form':form})
 
 def lista(request):
     contratos = Contrato.objects.all()
