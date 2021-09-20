@@ -54,7 +54,7 @@
         <td>
           <img src= "https://github.com/UniversalDevs/Projeto_API/blob/main/Imagens/Fotos%20Equipe/Felipe.jpg?raw=true" width="50px">
         </td>
-        <td>Scrum Master</td>
+        <td>Product Owner</td>
         <td><a href="https://www.linkedin.com/in/felipe-s-89938418a/">LinkedIn</a></td>
      </tr>
      <tr>
@@ -62,7 +62,7 @@
         <td>
           <img src= "https://github.com/UniversalDevs/Projeto_API/blob/main/Imagens/Fotos%20Equipe/Ramos.jpeg?raw=true" width="50px">
         </td>
-        <td>Desenvolvedor Back-End</td>
+        <td>Scrum Master</td>
         <td><a href="https://www.linkedin.com/in/gabriel-ramos-b845581a3/">LinkedIn</a></td>
      </tr>
      <tr>
@@ -73,6 +73,13 @@
         </td>
         <td>Desenvolvedor Front-End</td>
         <td><a href="https://www.linkedin.com/in/guilherme-cursino-679410213/">LinkedIn</a></td>
+     </tr>
+           <td>Vinicios Almeida</tb>
+        <td>
+          <img src= "https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Fotos%20Equipe/vinicios.jpeg" width="50px">
+        </td>
+        <td>Desenvolvedor Front-End</td>
+        <td><a href="">LinkedIn</a></td>
      </tr>
     </tbody>
   </table>
