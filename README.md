@@ -61,7 +61,13 @@
 <h3>:memo: Product Backlog</h3>
 <p>Lista de Itens e funcionalidades a serem desenvolvidas e implementadas.
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/BacklogProduto.PNG">
-
+<hr>
+  
+<h3>:memo: Burndown Sprint 1</h3>
+<p>Lista de Tarefas</p>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/listaDeTarefas_sprint1.png">
+<p>Burndown</p>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/sprint1_burndown.png">
 
 
 <h2>:globe_with_meridians: Equipe de Desenvolvedores</h2>
