@@ -1,4 +1,3 @@
-
 <h1 align="center">:chart_with_upwards_trend: Sprint 1 :chart_with_upwards_trend:</h1>
 <p align="center">
 <p>:ballot_box_with_check: CRUD Postos de Trabalho </p>
