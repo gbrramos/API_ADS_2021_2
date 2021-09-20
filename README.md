@@ -6,14 +6,13 @@
 </p>  
 
 <p align="center">
-  <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#globe_with_meridians-equipe-de-desenvolvedores"> Equipe </a>  •
-  <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#-dart-objetivos-do-projeto"> Objetivos do Projeto</a>  • 
-  <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#pushpin-requisitos-do-cliente"> Requisitos do Cliente</a>  • 
-  <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#arrows_counterclockwise-sprints"> Sprints</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#globe_with_meridians-equipe-de-desenvolvedores"> Equipe </a>  •
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#-dart-objetivos-do-projeto"> Objetivos do Projeto</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#pushpin-requisitos-do-cliente"> Requisitos do Cliente</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#arrows_counterclockwise-sprints"> Sprints</a>  • 
    <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#wrench-ferramentas--tecnologias-utilizadas"> Ferramentas Utilizadas</a>  • 
   <a href ="https://github.com/UniversalDevs/Projeto_API/blob/main/README.md#spiral_calendar-cronograma-sprints"> Cronograma </a>  • 
-  <a href =""> Mapa </a>  • 
-  <a href =""> Backlog </a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2#memo-product-backlog"> Backlog </a>  • 
 </p>
 <hr>
 <h3> :dart: Objetivos do Projeto</h2>
@@ -25,7 +24,9 @@
 <p>:ballot_box_with_check: Usuários devem ter perfis diferentes: Operacional e Tático</p>
 <p>:ballot_box_with_check: Lançamento do quadro de presenças</p>
 <p>:ballot_box_with_check: Emissão de Relatórios</p>
-
+<hr>
+<h3>:wrench: Ferramentas & Tecnologias utilizadas</h3>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/FerramentasUtilizadasAPI.PNG"/>
 <hr>
 <h3>:arrows_counterclockwise: Sprints</h3>
 <p>:white_check_mark: Kick-off do Projeto - 16/08 à 22/08</p>
