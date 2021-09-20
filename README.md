@@ -36,21 +36,21 @@
 <hr>
 <h3>:arrows_counterclockwise: Cronograma Sprints</h3>
 <h3>:arrows_counterclockwise: Sprint 1</h3>
-<p>::ballot_box_with_check: CRUD Quadro Presença </p>
-<p>::ballot_box_with_check: CRUD Postos de Trabalho </p>
-<p>::ballot_box_with_check: CRUD Colaboradores </p>
-<p>::ballot_box_with_check: CRUD Usuários </p>
-<p>::ballot_box_with_check: CRUD Clientes </p>
-<p>::ballot_box_with_check: CRUD Contratos </p>
+<p>:ballot_box_with_check: CRUD Quadro Presença </p>
+<p>:ballot_box_with_check: CRUD Postos de Trabalho </p>
+<p>:ballot_box_with_check: CRUD Colaboradores </p>
+<p>:ballot_box_with_check: CRUD Usuários </p>
+<p>:ballot_box_with_check: CRUD Clientes </p>
+<p>:ballot_box_with_check: CRUD Contratos </p>
 <h1>
 <h3>:arrows_counterclockwise: Sprint 2</h3>
-<p>::ballot_box_with_check: CRUD Alocações </p>
-<p>::ballot_box_with_check: Diferenciar Perfis de Usuário </p>
+<p>:ballot_box_with_check: CRUD Alocações </p>
+<p>:ballot_box_with_check: Diferenciar Perfis de Usuário </p>
 <hr>
 <h3>:arrows_counterclockwise: Sprint 3</h3>
-<p>::ballot_box_with_check: Aprovação de Lançamentos </p>
-<p>::ballot_box_with_check: Geração de Relatrórios </p>
-<p>::ballot_box_with_check: Dashboards de Presença/Eventos  </p>
+<p>:ballot_box_with_check: Aprovação de Lançamentos </p>
+<p>:ballot_box_with_check: Geração de Relatrórios </p>
+<p>:ballot_box_with_check: Dashboards de Presença/Eventos  </p>
 
 <hr>
 <h3>:arrows_counterclockwise: Sprint 4</h3>
