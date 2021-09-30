@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Quadro de Presença {% endblock %}
+
+{% block content %}
+
+<div class="offset-1 col-10 list-div">
+    <table>
+        <tr>
+            <th>nome</th>
+            for dia in dias
+            <th></th>
+        </tr>
+        {% for i in cols %}
+        <tr>
+            <td>{{ i.nomeCompleto }}</td>
+            <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+
+{% endblock %}

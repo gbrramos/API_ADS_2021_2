@@ -19,7 +19,7 @@
         </ul>
     {% endif %}
     <ul class="quadro-list">
-        {% for q in quadros %}
+        {% for q in postos %}
         <li class="quadro-item" style="margin-top: 10px; list-style-type: none;">
             <span>
             <p>
@@ -30,7 +30,11 @@
             </span>
               <div class="collapse" id="collapseExample_{{q.id}}">
                 <div class="card card-body">
-                    <a href="../novo/">Fazer Registro</a>
+                    <form method="POST" action="../novaData/{{q.id}}">
+                        {% csrf_token %}
+                            {{ form.as_p }}
+                        <input type="submit" class="btn btn-primary" value="Fazer Registro">
+                    </form>
                 </div>
               </div>
         </li>

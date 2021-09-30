@@ -1,14 +1,35 @@
 import django
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse
-from .forms import QuadroDePresencaForm
+from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .models import QuadroDePresenca
 from PostosDeTrabalho.models import PostoDeTrabalho
+from Colaboradores.models import Colaborador
+from django.template.response import TemplateResponse
 
 # Create your views here.
 
+def lista(request):
+    count = PostoDeTrabalho.objects.count()
+    form = DataForm(request.POST)
+    postos = PostoDeTrabalho.objects.all()
+    quadros = QuadroDePresenca.objects.all()
+    return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form})
+
+def novaData(request, id):
+    form = DataForm(request.POST)
+    col = Colaborador.objects.filter(posto_id=id)
+    if form.is_valid():
+        data = form.save(commit=False)
+        data.save()
+        return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col})
+
+def viewQuadro(request):
+    col = Colaborador.objects.all()
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'cols': col})
+    
 def novo(request):
     if request.method == 'POST':
         form = QuadroDePresencaForm(request.POST)
@@ -21,13 +42,6 @@ def novo(request):
         form = QuadroDePresencaForm()
         return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
-
-
-def lista(request):
-    count = PostoDeTrabalho.objects.count()
-    quadros = PostoDeTrabalho.objects.all()
-    print(quadros)
-    return render(request, 'quadrodepresenca/lista.html', {'quadros' : quadros})
 
 def edit(request, id):
     posto = get_object_or_404(QuadroDePresenca, pk=id)

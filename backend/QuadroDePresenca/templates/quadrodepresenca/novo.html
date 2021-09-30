@@ -7,7 +7,19 @@
     <h1>Cadastro dia: </h1>
     <form method="POST">
         {% csrf_token %}
-            {{ form.as_p }}
+        <table>
+            <tr>
+                <th>Funcionário</th>
+                <th>Presença</th>
+            </tr>
+            {% for i in cols %}
+            <tr>
+                <td>{{ i.nomeCompleto }}</td>
+                <td><input type="checkbox" name="presenca" id=""></td>
+            </tr>
+            {% endfor %}
+            
+        </table>
         <input type="submit" class="btn btn-success" value="Salvar">
     </form>
 
