@@ -50,3 +50,5 @@ def delete(request, id):
     posto.delete()
     messages.info(request, 'Posto de Trabalho deletado com Sucesso!')
     return redirect('/postosTrabalho/lista')
+
+

@@ -24,7 +24,7 @@
     <ul class="colaborador-list">
         {% for posto in postos %}
         <li class="colaborador-item">
-            <span><a href="view/{{posto.id}}">{{posto.descricao}}</a></span>
+            <span><a href="../view/{{posto.id}}">{{posto.descricao}}</a></span>
             <a href="../delete/{{posto.id}}"><span><i class='bx bx-trash'></i></span></a>
             <a href="../editar/{{posto.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
         </li>

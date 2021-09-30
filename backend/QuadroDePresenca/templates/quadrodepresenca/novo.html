@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Quadro de Colaboradores{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>Cadastro dia: </h1>
+    <form method="POST">
+        {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Salvar">
+    </form>
+
+</div>
+{% endblock %}

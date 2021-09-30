@@ -1,8 +1,9 @@
+import django
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import QuadroDePresencaForm
 from django.contrib import messages
-
+from django.views.generic.list import ListView
 from .models import QuadroDePresenca
 from PostosDeTrabalho.models import PostoDeTrabalho
 
@@ -18,7 +19,7 @@ def novo(request):
             return(redirect('../lista'))
     else:
         form = QuadroDePresencaForm()
-        return render(request, 'postosdetrabalho/novo.html', {'form':form})
+        return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
 
 

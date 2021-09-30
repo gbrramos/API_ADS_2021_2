@@ -6,7 +6,7 @@ class ColaboradorForm(forms.ModelForm):
 
     class Meta:
         model =  Colaborador
-        fields = ('cpf', 'matricula', 'nomeCompleto', 'dataAdmissao', 'dataDemissao', 'funcao', 'tipoDeCobertura', 'situacaoCadastro')
+        fields = ('cpf', 'matricula', 'nomeCompleto', 'dataAdmissao', 'dataDemissao', 'funcao', 'tipoDeCobertura', 'situacaoCadastro', 'posto')
 
         widgets = {
             'dataAdmissao': forms.TextInput(attrs={'data-mask':"00/00/0000"}),

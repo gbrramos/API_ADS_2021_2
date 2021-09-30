@@ -15,7 +15,7 @@ def novocolaborador(request):
         if form.is_valid():
             posto = form.save(commit=False)
             posto.save()
-            return(redirect('../lista'))
+            return(redirect('../'))
     else:
         form = ColaboradorForm()
         return render(request, 'colaboradores/addColaborador.html', {'form':form})

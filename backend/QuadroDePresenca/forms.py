@@ -6,7 +6,7 @@ class QuadroDePresencaForm(forms.ModelForm):
 
     class Meta:
         model =  QuadroDePresenca
-        fields = ('data', 'colaborador', 'posto_trabalho')
+        fields = ('data', 'presenca')
 
         widgets = {
             'data': forms.TextInput(attrs={'data-mask':"00/00/0000"}),

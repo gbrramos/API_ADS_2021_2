@@ -5,15 +5,16 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h1>{{ colaborador.nomeCompleto}}</h1>
-    <p>{{colaborador.cpf}}</p>
-    <p>{{colaborador.matricula}}</p>
-    <p>{{colaborador.nomeCompleto}}</p>
-    <p>{{colaborador.dataAdmissao}}</p>
-    <p>{{colaborador.data}}</p>
-    <p>{{colaborador.dataDemissao}}</p>
-    <p>{{colaborador.funcao}}</p>
-    <p>{{colaborador.situacaoCadastro}}</p>
-    <p>{{colaborador.created_at}}</p>
-    <p>{{colaborador.updated_at}}</p>
+    <p><strong>CPF: </strong>{{colaborador.cpf}}</p>
+    <p><strong>Matrícula: </strong>{{colaborador.matricula}}</p>
+    <p><strong>Nome Completo: </strong>{{colaborador.nomeCompleto}}</p>
+    <p><strong>Data Admissão: </strong>{{colaborador.dataAdmissao}}</p>
+    <p><strong>Posto de Trabalho Relacionado: </strong>{{colaborador.posto}}</p>
+    <p><strong>Data de Demissão: </strong>{{colaborador.dataDemissao}}</p>
+    <p><strong>Função: </strong>{{colaborador.funcao}}</p>
+    <p><strong>Situação do Cadastro: </strong>{{colaborador.situacaoCadastro}}</p>
+    <p><strong>Data de Criação: </strong>{{colaborador.created_at}}</p>
+    <p><strong>Ultima Data de Atualização: </strong>{{colaborador.updated_at}}</p>
 </div>
 {% endblock %}
+

@@ -5,7 +5,7 @@
 {% block content %}
 <div class="col-12 list-div">
     <h1>Quadros de Presença</h1>
-    <a id="add-link" href="novo/">
+    <a id="add-link" href="">
         <div class="col-2 add-div">
             <i class='bx bxs-add-to-queue'></i> Adicionar
         </div>
@@ -21,14 +21,16 @@
     <ul class="quadro-list">
         {% for q in quadros %}
         <li class="quadro-item" style="margin-top: 10px; list-style-type: none;">
+            <span>
             <p>
                 <a class="btn" data-toggle="collapse" href="#collapseExample_{{q.id}}" role="button" aria-expanded="false" aria-controls="collapseExample_{{q.id}}">
-                  {{q.numero_cadastro}}
+                  {{q.descricao}}
                 </a>
               </p>
+            </span>
               <div class="collapse" id="collapseExample_{{q.id}}">
                 <div class="card card-body">
-                    {{q.descricao}}
+                    <a href="../novo/">Fazer Registro</a>
                 </div>
               </div>
         </li>
