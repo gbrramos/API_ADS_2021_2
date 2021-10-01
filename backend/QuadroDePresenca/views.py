@@ -24,7 +24,7 @@ def novaData(request, id):
     if form.is_valid():
         data = form.save(commit=False)
         data.save()
-        return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col})
+    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col})
 
 def viewQuadro(request):
     col = Colaborador.objects.all()

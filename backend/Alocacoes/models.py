@@ -5,6 +5,6 @@ from PostosDeTrabalho.models import PostoDeTrabalho
 # Create your models here.
 
 class Alocacao(models.Model):
-    colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
-    posto = models.ForeignKey(PostoDeTrabalho, on_delete=models.CASCADE)
+    colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE, blank=True, null=True)
+    posto = models.ForeignKey(PostoDeTrabalho, on_delete=models.CASCADE, blank=True, null=True)
     alocacao = models.BooleanField()

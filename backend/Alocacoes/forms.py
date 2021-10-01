@@ -9,4 +9,4 @@ class AlocacoesForms(forms.ModelForm):
 
     class Meta:
         model =  Alocacao
-        fields = ('coloborador', 'posto', 'alocacao',)
+        fields = ('colaborador', 'posto', 'alocacao',)
