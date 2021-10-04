@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'Colaboradores',
     'Contratos',
     'PostosDeTrabalho',
-    'QuadroDePresenca',
+    'QuadroPresenca',
     'Usuarios',
 ]
 

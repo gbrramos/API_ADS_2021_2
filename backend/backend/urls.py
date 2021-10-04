@@ -13,6 +13,6 @@ urlpatterns = [
     path('clientes/', include('Clientes.urls')),
     path('usuarios/', include('Usuarios.urls')),
     path('contratos/', include('Contratos.urls')),
-    path('quadroPresenca/', include('QuadroDePresenca.urls')),
+    path('quadroPresenca/', include('QuadroPresenca.urls')),
     path('alocacoes/', include('Alocacoes.urls')),
 ]
