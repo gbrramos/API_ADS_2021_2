@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block title %}Quadro de Colaboradores{% endblock %}
 
 {% block content %}
@@ -7,20 +6,27 @@
     <h1>Cadastro dia: </h1>
     <form method="POST">
         {% csrf_token %}
-        <table>
+        <table class="table">
             <tr>
-                <th>Funcionário</th>
-                <th>Presença</th>
+                <th scope="col">ID</th>
+                <th scope="col">Funcionário</th>
+                <th scope="col">Presença</th>
             </tr>
             {% for i in cols %}
             <tr>
-                <td>{{ i.nomeCompleto }}</td>
-                <td><input type="checkbox" name="presenca" id=""></td>
+                <td><input type="text" style="border: none;" class="input-3" value="{{i.id}}"  name="id_colaborador" readonly/></td>
+                <td><input type="text" style="border: none;" class="input-3" value="{{i.nomeCompleto}}"  name="nomeColaborador" readonly/></td>
+                <td><input type="checkbox"   class="presenca"  multiple value="{{ True }}" name="confirma_presenca_colaborador" id="valor_da_presenca"></td>
             </tr>
             {% endfor %}
             
         </table>
-        <input type="submit" class="btn btn-success" value="Salvar">
+        {%for d in data %}
+        <a href="viewQuadro/{{d.id}}">
+        {% endfor %}
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </a>
+        
     </form>
 
 </div>

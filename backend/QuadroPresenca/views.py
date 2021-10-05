@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
 from django.views.generic.list import ListView
-from .models import QuadroPresenca
+from .models import Data, QuadroPresenca
 from PostosDeTrabalho.models import PostoDeTrabalho
 from Colaboradores.models import Colaborador
 from django.template.response import TemplateResponse
@@ -24,6 +24,7 @@ def novaData(request, id):
     if form.is_valid():
         data = form.save(commit=False)
         data.save()
+
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col})
 
 def viewQuadro(request):
@@ -68,3 +69,15 @@ def delete(request, id):
     posto.delete()
     messages.info(request, 'Posto de Trabalho deletado com Sucesso!')
     return redirect('/postosTrabalho/lista')
+
+
+def presenca(request, id):
+    data = get_object_or_404(Data, pk=id)
+    if request.method == "POST":
+        colaboradores = request.POST.getlist('id_colaborador')
+        if 'valor_da_presenca' in request.POST:
+            presenca = request.POST['valor_da_presenca']
+        else:
+            presenca = False
+        data = request.POST.getlist(data)
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'data': data})

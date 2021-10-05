@@ -13,7 +13,7 @@
         {% for i in cols %}
         <tr>
             <td>{{ i.nomeCompleto }}</td>
-            <td><input type="checkbox" name="" id=""></td>
+            <td><input type="checkbox" class="presenca" multiple value="{{ True }}" name="confirma_presenca_colaborador" id="valor_da_presenca"></td>
         </tr>
         {% endfor %}
         
@@ -21,3 +21,4 @@
 </div>
 
 {% endblock %}
+
