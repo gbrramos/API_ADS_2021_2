@@ -30,10 +30,10 @@
             </span>
               <div class="collapse" id="collapseExample_{{q.id}}">
                 <div class="card card-body">
-                    <form method="POST" action="../novaData/{{q.id}}">
+                  <!--  <form method="POST" action="../novaData/{{q.id}}"> 
                         {% csrf_token %}
-                            {{ form.as_p }}
-                        <input type="submit" class="btn btn-primary" value="Fazer Registro">
+                            {{ form.as_p }} -->
+                        <a href="../novaData/{{q.id}}"><input type="submit" class="btn btn-primary" value="Fazer Registro"></a>
                     </form>
                 </div>
               </div>

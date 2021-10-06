@@ -1,4 +1,5 @@
 import django
+from django.core.exceptions import DisallowedHost
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse
 from .forms import QuadroDePresencaForm, DataForm
@@ -18,14 +19,6 @@ def lista(request):
     quadros = QuadroPresenca.objects.all()
     return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form})
 
-def novaData(request, id):
-    form = DataForm(request.POST)
-    col = Colaborador.objects.filter(posto_id=id)
-    if form.is_valid():
-        data = form.save(commit=False)
-        data.save()
-
-    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col})
 
 def viewQuadro(request):
     col = Colaborador.objects.all()
@@ -71,13 +64,50 @@ def delete(request, id):
     return redirect('/postosTrabalho/lista')
 
 
-def presenca(request, id):
-    data = get_object_or_404(Data, pk=id)
-    if request.method == "POST":
-        colaboradores = request.POST.getlist('id_colaborador')
-        if 'valor_da_presenca' in request.POST:
-            presenca = request.POST['valor_da_presenca']
-        else:
-            presenca = False
-        data = request.POST.getlist(data)
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'data': data})
+#def novaData(request, id):
+#    form = DataForm(request.POST)
+#    col = Colaborador.objects.filter(posto_id=id)
+#    if form.is_valid():
+#        data = form.save(commit=False)
+#        data.save()
+#    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col}) 
+
+
+
+
+def novaData(request,id):
+    form = DataForm()  
+    postos = PostoDeTrabalho.objects.filter(id=id)
+    col = Colaborador.objects.filter(posto_id=id)
+    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos':postos, 'form': form})
+
+
+def presenca(request,id):
+    #Salvando a Data
+
+    if form.is_valid():
+        data = form.save(commit=False)
+        data.save()
+    data_presenca = Data.objects.filter(id=id)
+
+    #Dado do Colaborador
+    id = request.POST.getlist('id_colaborador')
+    #Presenca do Colaborador
+    if 'valor_da_presenca' in request.POST:
+        presenca = request.POST['valor_da_presenca']
+        colaboradores = request.POST['id_colaborador']
+        dataQuadro = request.POST.getList(data_presenca)
+    else:
+        presenca = False
+    return(render, 'quadrodepresenca/novo.html', { 'form': form})
+#def presenca(request, id):
+#    postos = PostoDeTrabalho.objects.all()
+#    data = get_object_or_404(Data, pk=id)
+#    if request.method == "POST":
+#        colaboradores = request.POST.getlist('id_colaborador')
+#        if 'valor_da_presenca' in request.POST:
+#            presenca = request.POST['valor_da_presenca']
+#        else:
+#            presenca = False
+#        data = request.POST.getlist(data)
+#    return render(request, 'quadrodepresenca/viewQuadro.html', {'data': data, 'postos' : postos})

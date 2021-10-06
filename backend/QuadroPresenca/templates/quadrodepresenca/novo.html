@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Quadro de Colaboradores{% endblock %}
+{% load crispy_forms_tags %} 
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Cadastro dia: </h1>
+{% for p in postos %}
+        <h1><strong>{{ p.descricao }}</strong></h1>
+{% endfor%} 
     <form method="POST">
         {% csrf_token %}
+            <input type="date" name="data"></input>
         <table class="table">
             <tr>
                 <th scope="col">ID</th>
@@ -21,12 +25,10 @@
             {% endfor %}
             
         </table>
-        {%for d in data %}
-        <a href="viewQuadro/{{d.id}}">
-        {% endfor %}
+
+        <a href="">
             <input type="submit" class="btn btn-success" value="Salvar">
         </a>
-        
     </form>
 
 </div>
