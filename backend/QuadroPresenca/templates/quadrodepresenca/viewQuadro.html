@@ -7,8 +7,9 @@
     <table>
         <tr>
             <th>nome</th>
-            for dia in dias
-            <th></th>
+            {{for q in quadro}}
+            <th>{{ q.presenca}}</th>
+            {{endfor}}
         </tr>
         {% for i in cols %}
         <tr>

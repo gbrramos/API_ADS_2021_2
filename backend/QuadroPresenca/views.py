@@ -2,6 +2,8 @@ import django
 from django.core.exceptions import DisallowedHost
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse
+
+from Colaboradores.views import colaboradorList
 from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
 from django.views.generic.list import ListView
@@ -76,38 +78,19 @@ def delete(request, id):
 
 
 def novaData(request,id):
-    form = DataForm()  
+    data = DataForm(request.POST)
     postos = PostoDeTrabalho.objects.filter(id=id)
     col = Colaborador.objects.filter(posto_id=id)
-    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos':postos, 'form': form})
+    flutuante = Colaborador.objects.filter(tipoDeCobertura='flutuante')
+
+    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
 
-def presenca(request,id):
-    #Salvando a Data
-
-    if form.is_valid():
-        data = form.save(commit=False)
-        data.save()
-    data_presenca = Data.objects.filter(id=id)
-
-    #Dado do Colaborador
-    id = request.POST.getlist('id_colaborador')
-    #Presenca do Colaborador
+def cadastra_presenca(request,id):
     if 'valor_da_presenca' in request.POST:
-        presenca = request.POST['valor_da_presenca']
-        colaboradores = request.POST['id_colaborador']
-        dataQuadro = request.POST.getList(data_presenca)
+            presenca = request.POST['valor_da_presenca']
     else:
-        presenca = False
-    return(render, 'quadrodepresenca/novo.html', { 'form': form})
-#def presenca(request, id):
-#    postos = PostoDeTrabalho.objects.all()
-#    data = get_object_or_404(Data, pk=id)
-#    if request.method == "POST":
-#        colaboradores = request.POST.getlist('id_colaborador')
-#        if 'valor_da_presenca' in request.POST:
-#            presenca = request.POST['valor_da_presenca']
-#        else:
-#            presenca = False
-#        data = request.POST.getlist(data)
-#    return render(request, 'quadrodepresenca/viewQuadro.html', {'data': data, 'postos' : postos})
+            presenca = False
+    colaborador = Colaborador.objects.all()
+    quadro = get_object_or_404(QuadroPresenca,pk=id)
+    return TemplateResponse(request,'quadrodepresenca/viewQuadro.html', {'colaborador': colaborador, 'quadro':quadro})
