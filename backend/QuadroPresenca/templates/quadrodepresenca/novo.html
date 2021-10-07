@@ -4,12 +4,12 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-{% for p in postos %}
-        <h1>{{ p.id }}<strong>{{ p.descricao }}</strong></h1>
-{% endfor%} 
-    <form method="POST" action="{% url 'cadastra_presenca' %}">
+        <h1>{{ postos.id }}<strong>{{ postos.descricao }}</strong></h1>
+    <form method="POST" action="../storeData/{{postos.id}}">
         {% csrf_token %} 
-        {{ data.as_p}}
+        <div class="col-3">
+            <input type="text" class="form-control" id="data" name="data" placeholder="">
+          </div>
 
         <table class="table">
             <tr>
@@ -19,9 +19,9 @@
             </tr>
             {% for i in cols %}
             <tr>
-                <td><input type="text" style="border: none;" class="input-3" value="{{i.id}}"  name="id_colaborador" readonly/></td>
-                <td><input type="text" style="border: none;" class="input-3" value="{{i.nomeCompleto}}"  name="nomeColaborador" readonly/></td>
-                <td><input type="checkbox" class="presenca" multiple value = "{{ True }}" name="confirma_presenca_colaborador" id="valor_da_presenca"/></td>
+                <td><input type="text" style="border: none;" class="input-3" value="{{i.id}}"  name="id_colaborador_{{i.id}}" readonly/></td>
+                <td><input type="text" style="border: none;" class="input-3" value="{{i.nomeCompleto}}"  name="nomeColaborador_{{i.id}}" readonly/></td>
+                <td><input type="checkbox" class="presenca" multiple value = "{{ True }}" name="presenca_{{ i.id }}" id="valor_da_presenca"/></td>
             </tr>
             {% endfor %}
             
@@ -29,9 +29,7 @@
         {% for f in flutuante %}
         <p>{{f.nomeCompleto}}</p>
         {% endfor %}
-        <a href="../viewQuadro/{{q.id}}"> 
-            <input type="submit" class="btn btn-success" value="Salvar"/>         
-        </a>
+            <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>
 {% endblock %}

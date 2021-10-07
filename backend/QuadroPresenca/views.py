@@ -74,23 +74,47 @@ def delete(request, id):
 #        data.save()
 #    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col}) 
 
-
+def view_quadros(request):
+    quadro = get_list_or_404(QuadroPresenca)
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'posto': quadro})
 
 
 def novaData(request,id):
     data = DataForm(request.POST)
-    postos = PostoDeTrabalho.objects.filter(id=id)
-    col = Colaborador.objects.filter(posto_id=id)
+    postos = PostoDeTrabalho.objects.filter(id=id).first()
     flutuante = Colaborador.objects.filter(tipoDeCobertura='flutuante')
-
+    col = Colaborador.objects.filter(posto_id=id)
+    form = DataForm(request.POST)
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
+def storeData(request, id):
+    maximo_colaboradores = Colaborador.objects.filter(posto_id=id).count()
 
-def cadastra_presenca(request,id):
-    if 'valor_da_presenca' in request.POST:
-            presenca = request.POST['valor_da_presenca']
-    else:
-            presenca = False
-    colaborador = Colaborador.objects.all()
-    quadro = get_object_or_404(QuadroPresenca,pk=id)
-    return TemplateResponse(request,'quadrodepresenca/viewQuadro.html', {'colaborador': colaborador, 'quadro':quadro})
+    id_cols = Colaborador.objects.filter(posto_id=id)
+    data = request.POST.get('data')
+    sqlData = Data(data=data)
+    sqlData.save()
+    for i in id_cols:
+        
+        presenca = request.POST.get(f'presenca_{i.id}')
+        last_data = Data.objects.all().order_by('-id').first()
+        
+        if presenca is None:
+            presenca = False    
+
+        sqlQuadro = QuadroPresenca(presenca=presenca, colaboradores_id=i.id)
+        sqlData = Data.data_set.all()
+        sqlQuadro.save()
+        sqlData.save()
+        
+    return redirect('../novaData/10')
+ 
+
+# def cadastra_presenca(request):
+#     if 'valor_da_presenca' in request.POST:
+#             presenca = request.POST['valor_da_presenca']
+#     else:
+#             presenca = False
+#     colaborador = Colaborador.objects.all()
+#     quadro = get_object_or_404(QuadroPresenca,pk=id)
+#     return TemplateResponse(request,'quadrodepresenca/viewQuadro.html', {'colaborador': colaborador, 'quadro':quadro})

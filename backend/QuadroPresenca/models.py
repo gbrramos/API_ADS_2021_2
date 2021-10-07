@@ -8,7 +8,7 @@ from PostosDeTrabalho.models import PostoDeTrabalho
 
 class Data(models.Model):
 
-    data = models.DateField(blank=True, null=True)
+    data = models.TextField(blank=True, null=True)
 
     def __date__(self):
         return self.data
