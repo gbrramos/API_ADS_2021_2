@@ -7,17 +7,11 @@ class QuadroDePresencaForm(forms.ModelForm):
 
     class Meta:
         model =  QuadroPresenca
-        fields = ('data', 'presenca', 'colaboradores')
-
-        widgets = {
-            'data': forms.TextInput(attrs={'data-mask':"00/00/0000"}),
-        }
+        fields = ('data_id', 'presenca', 'colaboradores')
 
 class DataForm(forms.ModelForm):
 
     class Meta:
         model = Data
-        fields = ('data',)
-        widgets = {
-            'data': forms.TextInput(attrs={'data-mask':"00/00/0000"}),
-        }
+        fields = ('dia', 'month', 'ano')
+        

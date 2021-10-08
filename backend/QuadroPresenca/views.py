@@ -87,7 +87,8 @@ def storeData(request, id):
 
     id_cols = Colaborador.objects.filter(posto_id=id)
     data = request.POST.get('data')
-    sqlData = Data(data=data)
+    arrData = data.split('/')
+    sqlData = Data(dia=arrData[0], month=arrData[1], ano=arrData[2])
     sqlData.save()
     for i in id_cols:
         
@@ -105,16 +106,26 @@ def storeData(request, id):
         #quadro possui = id do colaborador, presenca, id do quadro
         #quadro com esses dados + a insercao do campo id_data
         quadro = QuadroPresenca.objects.get(id=dataQuadro)
-        quadro.data.add(sqlData.id)
+        quadro.data_id.add(sqlData.id)
 
-    return redirect('../novaData/1')
+    return redirect('../novaData/10')
  
 #ainda nao estao sendo usadas
-def viewQuadro(request,id):
-    quadro = get_list_or_404(QuadroPresenca,pk=id)
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': quadro})
+# def viewQuadro(request,id):
+#     quadro = get_list_or_404(QuadroPresenca,pk=id)
+#     return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': quadro})
 
 def view_quadros(request,id):
     posto = PostoDeTrabalho.objects.filter(id=id)
-    quadro = get_list_or_404(QuadroPresenca)
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'postos': posto, 'quadros': quadro})
+    quadro = QuadroPresenca.objects.order_by('-id').first()
+    data = Data.objects.all().order_by('-id').first()
+    cols = Colaborador.objects.filter(posto_id=id)
+    dataQuadro = quadro.data_id.all()
+
+    for i in cols:
+        colabQuadro = QuadroPresenca.objects.filter(colaboradores_id=i.id)
+        for a in colabQuadro:
+            print(i.nomeCompleto)
+            print(a.presenca)
+    
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': cols})

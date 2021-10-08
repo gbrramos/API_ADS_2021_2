@@ -8,17 +8,19 @@ from PostosDeTrabalho.models import PostoDeTrabalho
 
 class Data(models.Model):
 
-    data = models.TextField(blank=True, null=True)
+    dia = models.TextField(blank=True, null=True)
+    month = models.TextField(blank=True, null=True)
+    ano = models.TextField(blank=True, null=True)
 
     def __date__(self):
-        return self.data
+        return self.dia
 
 class QuadroPresenca(models.Model):
 
     presenca = models.BooleanField(default=False)
     colaboradores = models.ForeignKey(Colaborador, on_delete=models.CASCADE, blank=True, null=True)
-    data = models.ManyToManyField(Data)
+    data_id = models.ManyToManyField(Data)
 
 
     def __int__(self):
-        return self.data
+        return self.colaboradores
