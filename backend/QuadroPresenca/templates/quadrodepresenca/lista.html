@@ -34,7 +34,8 @@
                         {% csrf_token %}
                             {{ form.as_p }} -->
                         <a href="../novaData/{{q.id}}"><input type="submit" class="btn btn-primary" value="Fazer Registro"></a>
-                        <a href="../viewQuadros"><input type="submit" class="btn btn-primary" value="Ver Presença"></a>
+                        <p></p>
+                        <a href="../viewQuadros/{{q.id}}"><input type="submit" class="btn btn-warning" value="Visualizar Quadro"></a>
                     </form>
                 </div>
               </div>

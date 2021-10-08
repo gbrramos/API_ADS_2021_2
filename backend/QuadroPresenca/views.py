@@ -22,9 +22,6 @@ def lista(request):
     return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form})
 
 
-def viewQuadro(request):
-    col = Colaborador.objects.all()
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'cols': col})
     
 def novo(request):
     if request.method == 'POST':
@@ -74,9 +71,7 @@ def delete(request, id):
 #        data.save()
 #    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col}) 
 
-def view_quadros(request):
-    quadro = get_list_or_404(QuadroPresenca)
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'posto': quadro})
+
 
 
 def novaData(request,id):
@@ -100,21 +95,26 @@ def storeData(request, id):
         last_data = Data.objects.all().order_by('-id').first()
         
         if presenca is None:
-            presenca = False    
-
+            presenca = False
+        #sqlQuadro = Registra primeiro a tabela quadropresenca_quadropresenca    
         sqlQuadro = QuadroPresenca(presenca=presenca, colaboradores_id=i.id)
-        sqlData = Data.data_set.all()
         sqlQuadro.save()
-        sqlData.save()
-        
-    return redirect('../novaData/10')
- 
+        #dataQuadro recebe o id setado no input
+        dataQuadro = sqlQuadro.id
+        #quadro recebe essa data e o comando add cria o relacionamento na tabela quadropresenca_quadropresenca_data
+        #quadro possui = id do colaborador, presenca, id do quadro
+        #quadro com esses dados + a insercao do campo id_data
+        quadro = QuadroPresenca.objects.get(id=dataQuadro)
+        quadro.data.add(sqlData.id)
 
-# def cadastra_presenca(request):
-#     if 'valor_da_presenca' in request.POST:
-#             presenca = request.POST['valor_da_presenca']
-#     else:
-#             presenca = False
-#     colaborador = Colaborador.objects.all()
-#     quadro = get_object_or_404(QuadroPresenca,pk=id)
-#     return TemplateResponse(request,'quadrodepresenca/viewQuadro.html', {'colaborador': colaborador, 'quadro':quadro})
+    return redirect('../novaData/1')
+ 
+#ainda nao estao sendo usadas
+def viewQuadro(request,id):
+    quadro = get_list_or_404(QuadroPresenca,pk=id)
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': quadro})
+
+def view_quadros(request,id):
+    posto = PostoDeTrabalho.objects.filter(id=id)
+    quadro = get_list_or_404(QuadroPresenca)
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'postos': posto, 'quadros': quadro})
