@@ -121,11 +121,22 @@ def view_quadros(request,id):
     data = Data.objects.all().order_by('-id').first()
     cols = Colaborador.objects.filter(posto_id=id)
     dataQuadro = quadro.data_id.all()
-
-    for i in cols:
-        colabQuadro = QuadroPresenca.objects.filter(colaboradores_id=i.id)
-        for a in colabQuadro:
-            print(i.nomeCompleto)
-            print(a.presenca)
+    diaMes = Data.objects.filter(month=data.month)
+    colabQuadro = QuadroPresenca.objects.filter(data_id=data.id)
+    colaboradores = Colaborador.objects.all()
+    presencas = QuadroPresenca.objects.all()
+    for q in colabQuadro:
+        print(q.id)
+        print(q.presenca)
     
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': cols})
+
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': colaboradores, 'datas': data, 'dias': diaMes, 'quadro': colabQuadro, 'presencas': presencas})
+#        for q in quadro:
+#            dia.append(q.presenca)
+#        matrizPresenca.append(dia)
+#    print(matrizPresenca)
+#    for l in range(countDia):
+#        for c in range(countQuadros):
+#            print(matrizPresenca[l][c])
+#        print('-'*30)
+        

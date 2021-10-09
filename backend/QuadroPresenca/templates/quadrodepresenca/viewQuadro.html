@@ -5,15 +5,42 @@
 
 <div class="offset-1 col-10 list-div">
     <p></p>
-    {% for posto in postos %}
+    
     <hr>
-    <h1><i class="fas fa-address-book"></i><strong> Quadro de Presença:</strong> {{posto.descricao}}</h1>
-    {% endfor %}
-</div>
+    <h1><i class="fas fa-border-all"></i><strong> Quadro de Presença:</strong></h1>
 
-<p>
-        <span>{{strData.ano}}</span>
-</p>
+    <!--Quadro-->
+</div>
+<div class="table-responsive">
+ 
+    <table class="table">
+        <caption>List of users</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            {% for d in dias %}
+            <th>{{d.dia}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+            {% for p in quadro %}
+                <tr>
+                    <th scope="row">{{p.colaboradores_id}}</th>
+                    {% for c in colaboradores %}
+                        {% if p.colaboradores_id == c.id %}
+                        <th scope="row">{{c.nomeCompleto}}</th>
+                        <th scope="row">{{p.presenca}}</th>
+                        
+                        {% endif %}
+                    {% endfor %}                  
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+  </div>
 
 {% endblock %}
 
