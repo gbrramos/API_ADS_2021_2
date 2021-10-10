@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import AlocacoesForms
 from django.contrib import messages
-
+from Colaboradores.models import Colaborador
+from PostosDeTrabalho.models import PostoDeTrabalho
 from .models import Alocacao
 
 # Create your views here.
@@ -16,14 +17,15 @@ def novo(request):
             posto.save()
             return(redirect('../lista'))
     else:
+        # colabs = Colaborador.objects.filter(tipoDeCobertura='flutuante')
+        # postos = PostoDeTrabalho.objects.all()
         form = AlocacoesForms()
-        return render(request, 'contratos/novo.html', {'form':form})
-
-
+        # return render(request, 'alocacoes/novo.html', {'colabs':colabs,'postos': postos})
+        return render(request, 'alocacoes/novo.html', {'form':form})
 
 def lista(request):
-    contratos = Alocacao.objects.all()
-    return render(request, 'alocacoes/lista.html', {'contratos' : contratos})
+    alocacoes = Alocacao.objects.all()
+    return render(request, 'alocacoes/lista.html', {'alocacoes' : alocacoes})
 
 def edit(request, id):
     contrato = get_object_or_404(Alocacao, pk=id)
@@ -48,5 +50,5 @@ def view(request, id):
 def delete(request, id):
     contrato = get_object_or_404(Alocacao, pk=id)
     contrato.delete()
-    messages.info(request, 'Contrato deletado com Sucesso!')
-    return redirect('/contratos/lista')
+    messages.info(request, 'Alocação deletado com Sucesso!')
+    return redirect('/alocacoes/lista')

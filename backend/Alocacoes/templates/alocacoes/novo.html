@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
-{% block title %}Adicionar Contrato{% endblock %}
+{% block title %}Adicionar Alocação{% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Adicione um novo contrato</h1>
+    <h1>Adicione uma nova alocação</h1>
     <form method="POST">
         {% csrf_token %}
-	        {{ form.as_p }}
+        {{form.as_p }}
+        <!-- <div class="col">
+            <label for="">Colaboradores</label>
+            <br>
+            <select name="colaborador_id" id="">
+                <option value="" disabled selected>----------</option>
+                {% for c in colabs %}
+                <option value="{{ c.id }}">{{ c.nomeCompleto }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="col">
+            <label for="">Posto de Trabalho</label>
+            <br>
+            <select name="posto" id="">
+                <option value="" disabled selected>----------</option>
+                {% for p in postos %}
+                <option value="{{ p.id }}">{{ p.descricao }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br> -->
         <input type="submit" class="btn btn-success" value="Salvar">
     </form>
 

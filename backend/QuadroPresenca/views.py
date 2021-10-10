@@ -11,6 +11,8 @@ from .models import Data, QuadroPresenca
 from PostosDeTrabalho.models import PostoDeTrabalho
 from Colaboradores.models import Colaborador
 from django.template.response import TemplateResponse
+from django.db import connection
+from collections import namedtuple
 
 # Create your views here.
 
@@ -125,11 +127,15 @@ def view_quadros(request,id):
     colabQuadro = QuadroPresenca.objects.filter(data_id=data.id)
     quadroP = QuadroPresenca.objects.all()
     colaboradores = Colaborador.objects.all()
+    data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
+    data_id = []
+    for d in data:
+        data_id.append(d.quadropresenca_id)
+    print(data_id)
     p = []   
     presencas = {}
     for d in diaMes:
         q = QuadroPresenca.objects.filter(data_id=d.id)
-        print('-'*30)
         for quadro in q:
             if quadro.presenca == True:
                 p.append('P')
@@ -144,28 +150,26 @@ def view_quadros(request,id):
     #Quantidade de quadros por dia
     qPerDia = len(q)
     #Caso só houver um dia registrado, as presenças são todas alocadas neste dia
-    # if len(diaMes) == 1:
-    #     for d in diaMes:
-    #         presencas[d.dia] = p
-    # else:
-    # #Caso haja mais de um dia, as presencas são alocadas por dia
-    #     #Para cada dia no mes:
-    #     for d in cols:
-    #         #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
-    #         presencas[int(d.id)] = p[i:qPerDia]
-    #         # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
-    #         i = qPerDia
-    #         # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
-    #         qPerDia+=len(q)
-    # p = presencas.items()
+    if len(diaMes) == 1:
+        for d in diaMes:
+            presencas[d.dia] = p
+    else:
+    #Caso haja mais de um dia, as presencas são alocadas por dia
+        #Para cada dia no mes:
+        for d in cols:
+            #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
+            presencas[int(d.id)] = p[i:qPerDia]
+            # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
+            i = qPerDia
+            # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
+            qPerDia+=len(q)
     # print(presencas)
-    v = []
-    for q in quadroP:
-        idQ = q.id
-        v.append(q.presenca)
-        print(type(idQ))
-    print(v)
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'datas': data, 'dias': p, 'quadro': colabQuadro, 'presencas': v, 'dia': diaMes, 'posto':posto})
+   
+    colabIds = []
+    for colab in cols:
+        colabIds.append(colab.id)
+    print(quadroP.values())
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'presencas': quadroP, 'dia': diaMes, 'data_id': data_id, 'posto':posto})
 #        for q in quadro:
 #            dia.append(q.presenca)
 #        matrizPresenca.append(dia)
