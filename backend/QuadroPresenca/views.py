@@ -135,31 +135,37 @@ def view_quadros(request,id):
                 p.append('P')
             if quadro.presenca == False:
                 p.append('F')
-    pPerCol = int(len(p)/len(q))
+    # pPerCol = int(len(p)/len(q))
     print(f'Quantidade de presencas ao longo de {len(diaMes)} dia(s) = {len(p)}')  
     print(f'Numeros de quadros por dia: {len(q)}')
-    print(pPerCol)  
+    # print(pPerCol)  
     dia = len(diaMes)
     i = 0
     #Quantidade de quadros por dia
     qPerDia = len(q)
     #Caso só houver um dia registrado, as presenças são todas alocadas neste dia
-    if len(diaMes) == 1:
-        for d in diaMes:
-            presencas[d.dia] = p
-    else:
-    #Caso haja mais de um dia, as presencas são alocadas por dia
-        #Para cada dia no mes:
-        for d in diaMes:
-            #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
-            presencas[int(d.dia)] = p[i:qPerDia]
-            # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
-            i = qPerDia
-            # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
-            qPerDia+=len(q)
-    print(presencas)
-
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'datas': data, 'dias': diaMes, 'quadro': colabQuadro, 'presencas': presencas, 'dia': dia, 'posto':posto})
+    # if len(diaMes) == 1:
+    #     for d in diaMes:
+    #         presencas[d.dia] = p
+    # else:
+    # #Caso haja mais de um dia, as presencas são alocadas por dia
+    #     #Para cada dia no mes:
+    #     for d in cols:
+    #         #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
+    #         presencas[int(d.id)] = p[i:qPerDia]
+    #         # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
+    #         i = qPerDia
+    #         # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
+    #         qPerDia+=len(q)
+    # p = presencas.items()
+    # print(presencas)
+    v = []
+    for q in quadroP:
+        idQ = q.id
+        v.append(q.presenca)
+        print(type(idQ))
+    print(v)
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'datas': data, 'dias': p, 'quadro': colabQuadro, 'presencas': v, 'dia': diaMes, 'posto':posto})
 #        for q in quadro:
 #            dia.append(q.presenca)
 #        matrizPresenca.append(dia)
