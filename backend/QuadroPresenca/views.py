@@ -78,14 +78,14 @@ def novaData(request,id):
     data = DataForm(request.POST)
     postos = PostoDeTrabalho.objects.filter(id=id).first()
     flutuante = Colaborador.objects.filter(tipoDeCobertura='flutuante')
-    col = Colaborador.objects.filter(posto_id=id)
+    col = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
     form = DataForm(request.POST)
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
 def storeData(request, id):
     maximo_colaboradores = Colaborador.objects.filter(posto_id=id).count()
 
-    id_cols = Colaborador.objects.filter(posto_id=id)
+    id_cols = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
     data = request.POST.get('data')
     arrData = data.split('/')
     sqlData = Data(dia=arrData[0], month=arrData[1], ano=arrData[2])
@@ -119,18 +119,47 @@ def view_quadros(request,id):
     posto = PostoDeTrabalho.objects.filter(id=id)
     quadro = QuadroPresenca.objects.order_by('-id').first()
     data = Data.objects.all().order_by('-id').first()
-    cols = Colaborador.objects.filter(posto_id=id)
+    cols = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
     dataQuadro = quadro.data_id.all()
     diaMes = Data.objects.filter(month=data.month)
     colabQuadro = QuadroPresenca.objects.filter(data_id=data.id)
+    quadroP = QuadroPresenca.objects.all()
     colaboradores = Colaborador.objects.all()
-    presencas = QuadroPresenca.objects.all()
-    for q in colabQuadro:
-        print(q.id)
-        print(q.presenca)
-    
+    p = []   
+    presencas = {}
+    for d in diaMes:
+        q = QuadroPresenca.objects.filter(data_id=d.id)
+        print('-'*30)
+        for quadro in q:
+            if quadro.presenca == True:
+                p.append('P')
+            if quadro.presenca == False:
+                p.append('F')
+    pPerCol = int(len(p)/len(q))
+    print(f'Quantidade de presencas ao longo de {len(diaMes)} dia(s) = {len(p)}')  
+    print(f'Numeros de quadros por dia: {len(q)}')
+    print(pPerCol)  
+    dia = len(diaMes)
+    i = 0
+    #Quantidade de quadros por dia
+    qPerDia = len(q)
+    #Caso só houver um dia registrado, as presenças são todas alocadas neste dia
+    if len(diaMes) == 1:
+        for d in diaMes:
+            presencas[d.dia] = p
+    else:
+    #Caso haja mais de um dia, as presencas são alocadas por dia
+        #Para cada dia no mes:
+        for d in diaMes:
+            #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
+            presencas[int(d.dia)] = p[i:qPerDia]
+            # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
+            i = qPerDia
+            # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
+            qPerDia+=len(q)
+    print(presencas)
 
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': colaboradores, 'datas': data, 'dias': diaMes, 'quadro': colabQuadro, 'presencas': presencas})
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'datas': data, 'dias': diaMes, 'quadro': colabQuadro, 'presencas': presencas, 'dia': dia, 'posto':posto})
 #        for q in quadro:
 #            dia.append(q.presenca)
 #        matrizPresenca.append(dia)
