@@ -28,20 +28,13 @@
 <p></p>
 <p></p>
 <hr>
-<h3> CRUD Colaboradores</h3>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Coloboradores.gif"/>
+<h3> Alocações </h3>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/gifs/QuadroAloca%C3%A7%C3%B5es.gif"/>
 <hr>
-<h3>CRUD Clientes</h3>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Clientes.gif"/>
+<h3>Quadro de Presença</h3>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/gifs/QuadroPresen%C3%A7a.gif"/>
 <hr>
-<h3>CRUD Usuários</h3>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Usuario.gif"/>
+<h3>Perfis de Usuários</h3>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/gifs/Usuario.gif"/>
 <hr>
-<h3>CRUD Contratos</h3>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Contratos.gif"/>
-<hr>
-<h3>CRUD Postos de Trabalho</h3>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint1/Gifs/Postos-de-Trabalho.gif"/>
-<hr>
-
 
