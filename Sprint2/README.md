@@ -12,7 +12,7 @@
 
 <h3>:heavy_exclamation_mark: Informações Destaque</h3>
 <p><strong> Duração:</strong> de 30/08/2021 à 19/09/2021</p>
-<p><strong> Utilizados na Sprint: </strong>Html, CSS e Javascript, Python, Django</p>
+<p><strong> Utilizados na Sprint: </strong>Html, CSS, Python & Django</p>
 <p> O projeto do site encontra se em: <a href="https://github.com/gbrramos/API_ADS_2021_2/tree/main/backend">Backend Main</a>
 <hr>
 
