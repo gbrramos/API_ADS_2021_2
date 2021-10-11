@@ -1,5 +1,5 @@
 <h1 align="center">:chart_with_upwards_trend: Sprint 1 :chart_with_upwards_trend:</h1>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/AtividadesSprint2.png" width="300px" align="center">
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/AtividadesSprint2.png" width="300px" align:center>
 <hr>
 <p align="center">
   <a href =""> Informações Importantes</a>  • 
