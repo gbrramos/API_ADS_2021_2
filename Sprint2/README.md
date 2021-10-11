@@ -1,4 +1,4 @@
-<h1 align="center">:chart_with_upwards_trend: Sprint 1 :chart_with_upwards_trend:</h1>
+<h1 align="center">:chart_with_upwards_trend: Sprint 2 :chart_with_upwards_trend:</h1>
 <p align="center">
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/AtividadesSprint2.png" width="300px" align:center>
  </p>
@@ -19,9 +19,9 @@
 
 <h3>:chart_with_downwards_trend: Burndown Chart </h3>
 <p>Lista de Atividades</p>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/listaDeTarefas_sprint1.png" width="900"/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/listaDeTarefas_sprint2.PNG" width="900"/>
 <p>Gráfico Burndown</p>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Burndowns/sprint1_burndown.png" width="500"/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/sprint2_burndown.PNG" width="500"/>
 <hr>
 
 <h3>Demonstração das Funcionalidades</h3>
