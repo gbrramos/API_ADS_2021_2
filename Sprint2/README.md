@@ -1,11 +1,5 @@
 <h1 align="center">:chart_with_upwards_trend: Sprint 1 :chart_with_upwards_trend:</h1>
-<p align="center">
-<p>:ballot_box_with_check: CRUD Postos de Trabalho </p>
-<p>:ballot_box_with_check: CRUD Colaboradores </p>
-<p>:ballot_box_with_check: CRUD Usuários </p>
-<p>:ballot_box_with_check: CRUD Clientes </p>
-<p>:ballot_box_with_check: CRUD Contratos </p>
-</p>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint2/AtividadesSprint2.png" width="300px">
 <hr>
 <p align="center">
   <a href =""> Informações Importantes</a>  • 
