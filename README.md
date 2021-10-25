@@ -81,10 +81,10 @@
        <tr>
       <td>Dante Demetrius Pereira Silva</tb>
         <td>
-          <img src= "" width="50px">
+          <img src= "https://github.com/gbrramos/API_ADS_2021_2/blob/main/Documentacao/Fotos%20Equipe/Dante.jpg?raw=true" width="50px">
         </td>
       <td>Desenvolvedor Back-End</td>
-      <td><a href="">LinkedIn</a></td>
+      <td><a href="https://www.linkedin.com/in/dante-silva-0a2a09a8/">LinkedIn</a></td>
      </tr>
       <td>Eduardo Pereira Carvalho</tb>
         <td>
