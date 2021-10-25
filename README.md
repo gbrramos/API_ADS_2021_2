@@ -78,6 +78,14 @@
     </thead>
     <tbody>
      <tr>
+       <tr>
+      <td>Dante Demetrius Pereira Silva</tb>
+        <td>
+          <img src= "" width="50px">
+        </td>
+      <td>Desenvolvedor Back-End</td>
+      <td><a href="">LinkedIn</a></td>
+     </tr>
       <td>Eduardo Pereira Carvalho</tb>
         <td>
           <img src= "https://github.com/UniversalDevs/Projeto_API/blob/main/Imagens/Fotos%20Equipe/Eduardo.jpeg?raw=true" width="50px">
