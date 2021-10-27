@@ -2,6 +2,7 @@ import django
 from django.core.exceptions import DisallowedHost
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse
+from Alocacoes.forms import AlocacoesForms
 
 from Colaboradores.views import colaboradorList
 from .forms import QuadroDePresencaForm, DataForm
@@ -10,6 +11,7 @@ from django.views.generic.list import ListView
 from .models import Data, QuadroPresenca
 from PostosDeTrabalho.models import PostoDeTrabalho
 from Colaboradores.models import Colaborador
+from Alocacoes.models import Alocacao
 from django.template.response import TemplateResponse
 from django.db import connection
 from collections import namedtuple
@@ -82,6 +84,8 @@ def novaData(request,id):
     flutuante = Colaborador.objects.filter(tipoDeCobertura='flutuante')
     col = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
     form = DataForm(request.POST)
+    alocacao = Alocacao.objects.all()
+    print(f' Alocacoes: {alocacao}')
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
 def storeData(request, id):
@@ -169,6 +173,7 @@ def view_quadros(request,id):
     for colab in cols:
         colabIds.append(colab.id)
     print(quadroP.values())
+
     return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'presencas': quadroP, 'dia': diaMes, 'data_id': data_id, 'posto':posto})
 #        for q in quadro:
 #            dia.append(q.presenca)

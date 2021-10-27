@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'Contratos',
     'PostosDeTrabalho',
     'QuadroPresenca',
-    'Usuarios',
+    'Usuarios.apps.UsuariosConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -139,3 +139,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Configurações de Autenticação
+LOGIN_REDIRECT_URL = "colaborador-list"
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
