@@ -2,11 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import ClientesForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 from .models import Clientes
 
 # Create your views here.
-
+@login_required
 def novo(request):
     if request.method == 'POST':
         form = ClientesForm(request.POST)
@@ -18,7 +20,7 @@ def novo(request):
     else:
         form = ClientesForm()
         return render(request, 'clientes/novo.html', {'form':form})
-
+@login_required
 def store(request):
     if request.method == 'POST':
         form = ClientesForm(request.POST)
@@ -32,10 +34,12 @@ def store(request):
         form = ClientesForm()
         return render(request, 'clientes/novo.html', {'form':form})
 
+@login_required
 def lista(request):
     clientes = Clientes.objects.all()
     return render(request, 'clientes/lista.html', {'clientes' : clientes})
 
+@login_required
 def editar(request, id):
     cli = get_object_or_404(Clientes, pk=id)
     form = ClientesForm(instance=cli)
@@ -51,11 +55,12 @@ def editar(request, id):
     else:
         return render(request, 'clientes/editar.html', {'form': form, 'cliente': cli})
 
+@login_required
 def view(request, id):
     cliente = get_object_or_404(Clientes, pk=id)
     return render(request, 'clientes/view.html', {'cliente': cliente})
 
-
+@login_required
 def delete(request, id):
     cli = get_object_or_404(Clientes, pk=id)
     cli.delete()

@@ -3,7 +3,7 @@ from django.core.exceptions import DisallowedHost
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse
 from Alocacoes.forms import AlocacoesForms
-
+from django.contrib.auth.decorators import login_required
 from Colaboradores.views import colaboradorList
 from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
@@ -18,6 +18,7 @@ from collections import namedtuple
 
 # Create your views here.
 
+@login_required
 def lista(request):
     count = PostoDeTrabalho.objects.count()
     form = DataForm(request.POST)
@@ -26,7 +27,7 @@ def lista(request):
     return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form})
 
 
-    
+@login_required
 def novo(request):
     if request.method == 'POST':
         form = QuadroDePresencaForm(request.POST)
@@ -39,7 +40,7 @@ def novo(request):
         form = QuadroDePresencaForm()
         return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
-
+@login_required
 def edit(request, id):
     posto = get_object_or_404(QuadroPresenca, pk=id)
     form = QuadroDePresencaForm(instance=posto)
@@ -55,11 +56,12 @@ def edit(request, id):
     else:
         return render(request, 'postosdetrabalho/editar.html', {'form': form, 'posto': posto})
 
+@login_required
 def view(request, id):
     posto = get_object_or_404(QuadroPresenca, pk=id)
     return render(request, 'postosdetrabalho/view.html', {'posto': posto})
 
-
+@login_required
 def delete(request, id):
     posto = get_object_or_404(QuadroPresenca, pk=id)
     posto.delete()
@@ -77,7 +79,7 @@ def delete(request, id):
 
 
 
-
+@login_required
 def novaData(request,id):
     data = DataForm(request.POST)
     postos = PostoDeTrabalho.objects.filter(id=id).first()
@@ -88,6 +90,7 @@ def novaData(request,id):
     print(f' Alocacoes: {alocacao}')
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
+@login_required
 def storeData(request, id):
     maximo_colaboradores = Colaborador.objects.filter(posto_id=id).count()
 
@@ -121,6 +124,7 @@ def storeData(request, id):
 #     quadro = get_list_or_404(QuadroPresenca,pk=id)
 #     return render(request, 'quadrodepresenca/viewQuadro.html', {'quadro': quadro})
 
+@login_required
 def view_quadros(request,id):
     posto = PostoDeTrabalho.objects.filter(id=id)
     quadro = QuadroPresenca.objects.order_by('-id').first()

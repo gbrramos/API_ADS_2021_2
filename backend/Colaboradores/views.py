@@ -6,9 +6,11 @@ from django.contrib import messages
 
 from Colaboradores.models import Colaborador
 
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-def novocolaborador(request):
+@login_required
+def novocolaborador(LoginRequiredMixin, request):
     if request.method == 'POST':
         form = ColaboradorForm(request.POST)
 
@@ -21,15 +23,17 @@ def novocolaborador(request):
         return render(request, 'colaboradores/addColaborador.html', {'form':form})
 
 
-
+@login_required
 def colaboradorList(request):
     colaboradores = Colaborador.objects.all().order_by('-created_at')
     return render(request, 'colaboradores/colaboradoresList.html', {'colaboradores' : colaboradores})
 
+@login_required
 def colaboradorView(request, id):
     colaborador = get_object_or_404(Colaborador, pk=id)
     return render(request, 'colaboradores/colaborador.html', {'colaborador': colaborador})
 
+@login_required
 def editColaborador(request, id):
     colaborador = get_object_or_404(Colaborador, pk=id)
     form = ColaboradorForm(instance=colaborador)
@@ -45,6 +49,7 @@ def editColaborador(request, id):
     else:
         return render(request, 'colaboradores/editColaborador.html', {'form': form, 'colaborador': colaborador})
 
+@login_required
 def deleteColaborador(request, id):
     colaborador = get_object_or_404(Colaborador, pk=id)
     colaborador.delete()
