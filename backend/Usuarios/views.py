@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import UsuariosForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 from .models import Usuarios
 
 # Create your views here.
@@ -11,10 +11,24 @@ from .models import Usuarios
 def novo(request):
     if request.method == 'POST':
         form = UsuariosForm(request.POST)
-
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
+            if(user.perfil == "Tático"): 
+                superuser = User.objects.create_superuser(
+                    username=user.nome,
+                    email=user.username,
+                    password=user.password,
+                    is_staff=1
+                )
+            else:
+                superuser = User.objects.create_superuser(
+                    username=user.nome,
+                    email=user.username,
+                    password=user.password,
+                    is_staff=0
+                )
+            superuser.save()
             return(redirect('../lista'))
     else:
         form = UsuariosForm()
