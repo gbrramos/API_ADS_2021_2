@@ -40,21 +40,7 @@ def novo(request):
         form = QuadroDePresencaForm()
         return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
-@login_required
-def edit(request, id):
-    posto = get_object_or_404(QuadroPresenca, pk=id)
-    form = QuadroDePresencaForm(instance=posto)
 
-    if(request.method == 'POST'):
-        form = QuadroDePresencaForm(request.POST, instance=posto)
-
-        if(form.is_valid()):
-            posto.save()
-            return redirect('/postosTrabalho/lista')
-        else:
-            return render(request, 'postosdetrabalho/editar.html', {'form': form, 'posto': posto})
-    else:
-        return render(request, 'postosdetrabalho/editar.html', {'form': form, 'posto': posto})
 
 @login_required
 def view(request, id):
@@ -187,4 +173,13 @@ def view_quadros(request,id):
 #        for c in range(countQuadros):
 #            print(matrizPresenca[l][c])
 #        print('-'*30)
-        
+
+@login_required
+def edit(request, id):
+    posto = PostoDeTrabalho.objects.filter(id=id)
+    quadroP = QuadroPresenca.objects.all()
+    data = Data.objects.all().order_by('-id').first()
+    diaMes = Data.objects.filter(month=data.month)
+    data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
+    colaboradores = Colaborador.objects.raw('SELECT * FROM colaboradores_colaborador WHERE tipoDeCobertura = "fixa" and posto_id = %s', [id])
+    return render(request, 'quadrodepresenca/editar.html', {'posto':posto, 'data':data, 'presencas': quadroP, 'colaboradores': colaboradores, 'dia': diaMes})

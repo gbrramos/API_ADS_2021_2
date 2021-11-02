@@ -21,7 +21,7 @@
             <img src="assets/img/perfil.jpg" alt="">
         </div>
     </header>
-
+    {% if request.user.is_authenticated %}
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
@@ -35,12 +35,12 @@
                         <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
                         <span class="nav__name">Dashboards</span>
                     </a>
-
-                    <a href="../../usuarios/lista" class="nav__link">
-                        <i class='bx bx-user nav__icon' ></i>
-                        <span class="nav__name">Usuários</span>
-                    </a>
-                    
+                    {% if request.user.groups.all.0.name == 'Tatico' %}
+                        <a href="../../usuarios/lista" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Usuários</span>
+                        </a>
+                    {% endif %}                    
                     <a href="../../colaboradores/" class="nav__link">
                         <i class='bx bxs-user-detail'></i>
                         <span class="nav__name">Colaboradores</span>
@@ -67,8 +67,8 @@
 
                 </div>
             </div>
-
-            <a href="#" class="nav__link">
+        {% endif %}
+            <a href="/logout" class="nav__link">
                 <i class='bx bx-log-out nav__icon' ></i>
                 <span class="nav__name">Log Out</span>
             </a>

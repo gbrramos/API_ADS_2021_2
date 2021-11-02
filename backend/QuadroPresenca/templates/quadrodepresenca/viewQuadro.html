@@ -46,6 +46,13 @@
 
     </tbody>
   </table>
+  {% if request.user.groups.all.0.name == 'Tatico' %}
+    {% for q in posto %}  
+      <a href="../editar/{{q.id}}">
+        <button type="button" class="btn btn-warning" >Editar Quadro</button>
+      </a>
+    {% endfor %}
+  {%endif%}
 </div>
 
 {% endblock %}

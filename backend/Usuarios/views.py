@@ -13,22 +13,7 @@ def novo(request):
         form = UsuariosForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.save()
-            if(user.perfil == "Tático"): 
-                superuser = User.objects.create_superuser(
-                    username=user.nome,
-                    email=user.username,
-                    password=user.password,
-                    is_staff=1
-                )
-            else:
-                superuser = User.objects.create_superuser(
-                    username=user.nome,
-                    email=user.username,
-                    password=user.password,
-                    is_staff=0
-                )
-            superuser.save()
+            user.save() 
             return(redirect('../lista'))
     else:
         form = UsuariosForm()
