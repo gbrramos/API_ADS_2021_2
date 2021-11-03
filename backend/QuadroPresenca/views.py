@@ -23,8 +23,9 @@ def lista(request):
     count = PostoDeTrabalho.objects.count()
     form = DataForm(request.POST)
     postos = PostoDeTrabalho.objects.all()
+    count = len(postos)
     quadros = QuadroPresenca.objects.all()
-    return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form})
+    return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form, 'count': count})
 
 
 @login_required

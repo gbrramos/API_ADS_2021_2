@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 @login_required
-def novocolaborador(LoginRequiredMixin, request):
+def novocolaborador(request):
     if request.method == 'POST':
         form = ColaboradorForm(request.POST)
 

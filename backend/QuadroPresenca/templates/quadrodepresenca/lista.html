@@ -10,37 +10,46 @@
             <i class='bx bxs-add-to-queue'></i> Adicionar
         </div>
     </a>
-    
+
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
-            {% endfor %}
-        </ul>
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %}class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
     <ul class="quadro-list">
+        {% if count > 0 %}
         {% for q in postos %}
         <li class="quadro-item" style="margin-top: 10px; list-style-type: none;">
             <span>
-            <p>
-                <a class="btn" data-toggle="collapse" href="#collapseExample_{{q.id}}" role="button" aria-expanded="false" aria-controls="collapseExample_{{q.id}}">
-                  {{q.descricao}}
-                </a>
-              </p>
+                <p>
+                    <a class="btn" data-toggle="collapse" href="#collapseExample_{{ q.id }}" role="button"
+                        aria-expanded="false" aria-controls="collapseExample_{{ q.id }}">
+                        {{ q.descricao }}
+                    </a>
+                </p>
             </span>
-              <div class="collapse" id="collapseExample_{{q.id}}">
+
+            <div class="collapse" id="collapseExample_{{ q.id }}">
                 <div class="card card-body">
-                  <!--  <form method="POST" action="../novaData/{{q.id}}"> 
+                    <!--  <form method="POST" action="../novaData/{{ q.id }}"> 
                         {% csrf_token %}
                             {{ form.as_p }} -->
-                        <a href="../novaData/{{q.id}}"><input type="submit" class="btn btn-primary" value="Fazer Registro"></a>
-                        <p></p>
-                        <a href="../viewQuadros/{{q.id}}"><input type="submit" class="btn btn-warning" value="Visualizar Quadro"></a>
+                    <a href="../novaData/{{ q.id }}"><input type="submit" class="btn btn-primary"
+                            value="Fazer Registro"></a>
+                    <p></p>
+                    <a href="../viewQuadros/{{ q.id }}"><input type="submit" class="btn btn-warning"
+                            value="Visualizar Quadro"></a>
                     </form>
                 </div>
-              </div>
+            </div>
+
         </li>
         {% endfor %}
+        {% else %}
+        <span>Nenhum Posto de Trabalho Cadastrado</span>
+        {% endif %}
     </ul>
 </div>
 {% endblock %}
