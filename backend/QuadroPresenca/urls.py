@@ -12,4 +12,5 @@ urlpatterns = [
     path('editar/<int:id>', views.edit, name="quadro-presenca-editar"),
     path('delete/<int:id>', views.delete, name="quadro-presenca-delete"),
     path('view/<int:id>', views.view, name="postos-trabalho-view"),
+    path('quadroGeral/', views.quadroGeral, name="quadro-geral"),
 ]

@@ -184,3 +184,16 @@ def edit(request, id):
     data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
     colaboradores = Colaborador.objects.raw('SELECT * FROM colaboradores_colaborador WHERE tipoDeCobertura = "fixa" and posto_id = %s', [id])
     return render(request, 'quadrodepresenca/editar.html', {'posto':posto, 'data':data, 'presencas': quadroP, 'colaboradores': colaboradores, 'dia': diaMes})
+
+
+@login_required
+def quadroGeral(request):
+    id_postos = PostoDeTrabalho.objects.all()
+    posto = PostoDeTrabalho.objects.all()
+    quadro = QuadroPresenca.objects.all()
+    dataMes = Data.objects.all().order_by('-id').first()
+    data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
+    colaboradores = Colaborador.objects.raw('SELECT * FROM colaboradores_colaborador WHERE tipoDeCobertura = "fixa"')
+    diaMes = Data.objects.filter(month=dataMes.month)
+
+    return render(request, 'quadrodepresenca/quadroGeral.html', {'posto':posto, 'presencas': quadro, 'data':data, 'cols': colaboradores, 'id_postos': id_postos, 'dia': diaMes})

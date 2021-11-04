@@ -5,12 +5,13 @@
 {% block content %}
 <div class="col-12 list-div">
     <h1>Quadros de Presença</h1>
-    <a id="add-link" href="">
+
+    <a id="add-link" href="../quadroGeral/">
         <div class="col-2 add-div">
-            <i class='bx bxs-add-to-queue'></i> Adicionar
+            <i class="far fa-list-alt"></i> Quadro Geral
         </div>
     </a>
-
+    <hr>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -44,8 +45,8 @@
                     </form>
                 </div>
             </div>
-
         </li>
+        <hr>
         {% endfor %}
         {% else %}
         <span>Nenhum Posto de Trabalho Cadastrado</span>
