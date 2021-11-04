@@ -6,14 +6,9 @@
 
 <div class="offset-1 col-10 list-div">
     <h1>Contrato {{ contrato.numero }}</h1>
-    <p>{{ contrato.valor }}</p>
-    <p>{{ contrato.cliente_id }}</p>
-    <p>{{contrato.cliente}}</p>
-    {% for contrato in postosDeTrabalho %}
-    <p>{{ contrato }}</p>
-    {% endfor %}
+    <p>Gerar Relatório<button class="btn btn-light"><a href="{% url 'gerar-relatorio' %}"><i class="fas fa-file-pdf" style="color: red;"></i></a></button></p>
+    
 
-    <p>{{contrato.postoDeTrabalho }}</p>
 </div>
 <table class="table">
     <thead>

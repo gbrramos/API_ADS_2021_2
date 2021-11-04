@@ -3,6 +3,11 @@ from django.http import HttpResponse
 from .forms import ContratosForms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
 
 from .models import Contrato
 
@@ -53,3 +58,32 @@ def delete(request, id):
     contrato.delete()
     messages.info(request, 'Contrato deletado com Sucesso!')
     return redirect('/contratos/lista')
+
+
+@login_required
+def gerarRelatorio(request):
+    # Create Bytestream buffer
+    buf = io.BytesIO()
+    # Create a canvas
+    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+    # Create a text object
+    textob = c.beginText()
+    textob.setTextOrigin(inch, inch)
+    textob.setFont("Helvetica", 14)
+    #Dados do Contrato
+
+    #Add some lines of text
+    lines = [
+        "Guilherme",
+        "Felipe",
+        "Eduardo",
+    ]
+
+    for line in lines:
+        textob.textLine(line)
+
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+    return FileResponse(buf, as_attachment=True, filename='relatorio.pdf')
