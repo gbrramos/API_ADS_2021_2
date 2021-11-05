@@ -91,13 +91,15 @@ def delete(request, id):
 #     return FileResponse(buf, as_attachment=True, filename='relatorio.pdf')
 
 @login_required
-def gerarRelatorio(request):
+def gerarRelatorio(request, id):
     #Retrieve data or whatever you need
+    contrato = get_object_or_404(Contrato, pk=id)
+    print(f"Request: {contrato}")
     return render_to_pdf(
             'contratos/model.html',
             {
                 'pagesize':'A4',
-                'mylist': request,
+                'contrato': contrato,
             }
         )
 
