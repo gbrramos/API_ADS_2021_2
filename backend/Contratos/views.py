@@ -96,7 +96,7 @@ def gerarRelatorio(request, id):
     contrato = get_object_or_404(Contrato, pk=id)
     print(f"Request: {contrato}")
     return render_to_pdf(
-            'contratos/model.html',
+            'contratos/pdf.html',
             {
                 'pagesize':'A4',
                 'contrato': contrato,
