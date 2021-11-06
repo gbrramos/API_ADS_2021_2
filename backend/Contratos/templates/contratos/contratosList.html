@@ -24,7 +24,7 @@
     <ul class="colaborador-list">
         {% for contrato in contratos %}
         <li class="colaborador-item">
-            <span><a href="view/{{contrato.id}}">{{contrato.numero}}</a></span>
+            <span><a href="view/{{contrato.id}}">{{contrato.numero}} - {{contrato.cliente.razao_social}}</a></span>
             <a href="delete/{{contrato.id}}"><span><i class='bx bx-trash'></i></span></a>
             <a href="editar/{{contrato.id}}"><span><i class='bx bx-edit-alt'></i></span></a>
         </li>

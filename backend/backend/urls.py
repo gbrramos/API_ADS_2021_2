@@ -16,6 +16,7 @@ urlpatterns = [
     path('contratos/', include('Contratos.urls')),
     path('quadroPresenca/', include('QuadroPresenca.urls')),
     path('alocacoes/', include('Alocacoes.urls')),
+    path('dashboard/', include('Dashboard.urls')),
     path('', lambda request: redirect('login/')),
     path('', include('Usuarios.urls')),
 ]

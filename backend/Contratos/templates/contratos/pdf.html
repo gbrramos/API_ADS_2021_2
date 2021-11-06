@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style/pdf.css">
+    <title>Relatório de Contratos</title>
 </head>
+
 <body>
-    <ul>
-        <li>Contrato: {{contrato.numero}}</li>
-        <li>Valor: {{contrato.valor}}</li>
-        <li>Cliente: {{contrato.cliente}}</li>
-        <li>Posto de Trabalho: {{contrato.postoDeTrabalho}}</li>
-    </ul>
+    <div class="header">
+        <h2>Contrato: </h2>
+        <p>Contrato: {{ contrato.numero }}</p>
+        <p>Valor: {{ contrato.valor }}</p>
+    </div>
+    <hr>
+    <div class="body">
+        <h2>Cliente: </h2>
+        <p>Nome Fantasia: {{ contrato.cliente.nome_fantasia }}</p>
+        <p>Razão Social: {{ contrato.cliente.razao_social }}</p>
+        <p>CNPJ: {{ contrato.cliente.cnpj }}</p>
+        <p>Endereço: {{ contrato.cliente.endereco }}</p>
+        <p>Contato: {{ contrato.cliente.contato }}</p>
+    </div>
 </body>
+
 </html>

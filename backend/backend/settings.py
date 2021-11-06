@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # My Apps
     'Alocacoes',
     'Clientes',
+    'Dashboard',
     'Colaboradores',
     'Contratos',
     'PostosDeTrabalho',
