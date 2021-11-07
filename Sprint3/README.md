@@ -4,9 +4,9 @@
  </p>
 <hr>
 <p align="center">
-  <a href =""> Informações Importantes</a>  • 
-  <a href =""> Burndown Chart</a>  • 
-  <a href =""> Demonstração das Funcionadades</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2/tree/main/Sprint3#heavy_exclamation_mark-informa%C3%A7%C3%B5es-destaque"> Informações Importantes</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2/tree/main/Sprint3#chart_with_downwards_trend-burndown-chart-"> Burndown Chart</a>  • 
+  <a href ="https://github.com/gbrramos/API_ADS_2021_2/tree/main/Sprint3#demonstra%C3%A7%C3%A3o-das-funcionalidades"> Demonstração das Funcionadades</a>  • 
 </p>
 <hr>
 
