@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -21,7 +22,7 @@
             <img src="assets/img/perfil.jpg" alt="">
         </div>
     </header>
-    {% if request.user.is_authenticated %}
+
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
@@ -31,36 +32,35 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="../../dashboard/" class="nav__link ">
+                    <a href="{% url 'dashboard'%}" class="nav__link ">
                         <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
                         <span class="nav__name">Dashboards</span>
                     </a>
-                    {% if request.user.groups.all.0.name == 'Tatico' %}
-                        <a href="../../usuarios/lista" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Usuários</span>
-                        </a>
-                        <a href="../../colaboradores/" class="nav__link">
-                            <i class='bx bxs-user-detail'></i>
-                            <span class="nav__name">Colaboradores</span>
-                        </a>
-                        <a href="../../clientes/lista" class="nav__link">
-                            <i class='bx bx-group'></i>
-                            <span class="nav__name">Clientes</span>
-                        </a>
-                        <a href="../../postosTrabalho/lista" class="nav__link">
-                            <i class='bx bxs-city'></i>
-                            <span class="nav__name">Postos de Trabalho</span>
-                        </a>
-    
-                        <a href="../../contratos/lista" class="nav__link">
-                            <i class='bx bx-bookmark nav__icon' ></i>
-                            <span class="nav__name">Contratos</span>
-                        </a>
-    
-                    {% endif %}                    
 
-                    <a href="../../quadroPresenca/lista" class="nav__link">
+                    <a href="../../usuarios/lista" class="nav__link">
+                        <i class='bx bx-user nav__icon' ></i>
+                        <span class="nav__name">Usuários</span>
+                    </a>
+                    
+                    <a href="../../colaboradores/" class="nav__link">
+                        <i class='bx bxs-user-detail'></i>
+                        <span class="nav__name">Colaboradores</span>
+                    </a>
+                    <a href="../../clientes/lista" class="nav__link">
+                        <i class='bx bx-group'></i>
+                        <span class="nav__name">Clientes</span>
+                    </a>
+                    <a href="../../postosTrabalho/lista" class="nav__link">
+                        <i class='bx bxs-city'></i>
+                        <span class="nav__name">Postos de Trabalho</span>
+                    </a>
+
+                    <a href="../../contratos/lista" class="nav__link">
+                        <i class='bx bx-bookmark nav__icon' ></i>
+                        <span class="nav__name">Contratos</span>
+                    </a>
+
+                    <a href="../../postosTrabalho/lista" class="nav__link">
                         <i class='bx bx-grid-alt nav__icon' ></i>
                         <span class="nav__name">Quadro de Presença</span>
                     </a>
@@ -68,8 +68,8 @@
 
                 </div>
             </div>
-        {% endif %}
-            <a href="/logout" class="nav__link">
+
+            <a href="#" class="nav__link">
                 <i class='bx bx-log-out nav__icon' ></i>
                 <span class="nav__name">Log Out</span>
             </a>

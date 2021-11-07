@@ -4,6 +4,7 @@
     <canvas id="pie-chart"></canvas>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
 <script>
     var config = {
     type: 'pie',
@@ -27,4 +28,22 @@
         window.myPie = new Chart(ctx, config);
     };
 </script>
+
+
+<!--
+  <div class="container dashboard" style="padding: 0; width: 100%; display: block;">
+  <div class="col-4 dashboard-box" id="dashboard-cols" style="float: left; background-color: rgb(51, 212, 91); color: rgb(255, 255, 255); padding: 20px; box-sizing: border-box; height: 130px; width: 325; text-align: center; ">
+    <h4 style="font-size: 20px;">Colaboradores</h4>
+    <span style="font-size: 40px; display: block; width: 100%;">0</span>
+  </div>
+  <div class="col-4 dashboard-box" id="dashboard-presenca" style="float: left; background-color: rgb(0, 105, 197); color: rgb(255, 255, 255); padding: 20px; box-sizing: border-box; height: 130px; width: 325;  text-align: center;">
+    <h4 style="font-size: 20px;">Presenca</h4>
+    <span style="font-size: 40px; display: block; width: 100%;">0</span>
+  </div>
+  <div class="col-4 dashboard-box" id="falta" style="float: left; background-color: rgb(240, 56, 0); color: rgb(255, 255, 255); padding: 20px; box-sizing: border-box; height: 130px; width: 325;  text-align: center; ">
+    <h4 style="font-size: 20px;">Falta</h4>
+    <span style="font-size: 40px; display: block; width: 100%;">0</span>
+  </div>
+</div>
+-->
 {% endblock %}

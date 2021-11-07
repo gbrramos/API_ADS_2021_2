@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from Colaboradores.models import Colaborador
 from QuadroPresenca.models import QuadroPresenca
+from .models import Dashboard
+from django.contrib import messages
 
 # Create your views here.
 @login_required
@@ -43,3 +45,9 @@ def dash(request):
         'data': data,
         'labels': labels,
     })
+
+
+@login_required
+def colaboradores(request):
+    cols = Colaborador.objects.all()
+    return render(request, 'dashboard/index.html', {'cols':cols})
