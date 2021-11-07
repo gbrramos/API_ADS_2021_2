@@ -8,6 +8,7 @@ urlpatterns = [
     path('novaData/<int:id>', views.novaData, name="quadro-presenca-novaData"),
     path('storeData/<int:id>', views.storeData, name="quadro-presenca-storeData"),
     path('viewQuadros/<int:id>', views.view_quadros, name="view_quadros"),
+    # path('aprovarQuadro/<int:id>', views.aprovarQuadro, name="aprovar_quadro"),
     path('editar/<int:id>', views.edit, name="quadro-presenca-editar"),
     path('delete/<int:id>', views.delete, name="quadro-presenca-delete"),
     path('view/<int:id>', views.view, name="postos-trabalho-view"),

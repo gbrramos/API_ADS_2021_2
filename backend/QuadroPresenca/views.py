@@ -24,7 +24,6 @@ def lista(request):
     form = DataForm(request.POST)
     postos = PostoDeTrabalho.objects.all()
     count = len(postos)
-    quadros = QuadroPresenca.objects.all()
     return render(request, 'quadrodepresenca/lista.html', {'postos' : postos, 'form': form, 'count': count})
 
 
@@ -41,7 +40,10 @@ def novo(request):
         form = QuadroDePresencaForm()
         return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
-
+# @login_required
+# def aprovarQuadro(request, id):
+#     QuadroPresenca
+#     return "ok"
 
 @login_required
 def view(request, id):

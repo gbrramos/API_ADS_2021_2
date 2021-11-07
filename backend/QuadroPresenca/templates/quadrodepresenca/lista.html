@@ -51,6 +51,11 @@
         {% else %}
         <span>Nenhum Posto de Trabalho Cadastrado</span>
         {% endif %}
+        
+        {% if request.user.groups.all.0.name == 'Tatico' %}
+        <hr>
+        <h3> Postos de Trabalho não aprovados </h3>
+        {% endif %}
     </ul>
 </div>
 {% endblock %}

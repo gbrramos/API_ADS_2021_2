@@ -20,7 +20,7 @@ class QuadroPresenca(models.Model):
     presenca = models.BooleanField(default=False)
     colaboradores = models.ForeignKey(Colaborador, on_delete=models.CASCADE, blank=True, null=True)
     data_id = models.ManyToManyField(Data)
-
+    is_approved = models.BooleanField(default=False)
 
     def __int__(self):
         return self.colaboradores
