@@ -40,10 +40,12 @@ def novo(request):
         form = QuadroDePresencaForm()
         return render(request, 'quadrodepresenca/novo.html', {'form':form})
 
-# @login_required
-# def aprovarQuadro(request, id):
-#     QuadroPresenca
-#     return "ok"
+@login_required
+def aprovarQuadro(request, id):
+    quadro = get_object_or_404(QuadroPresenca, pk=id)
+    quadro.update(is_approved=True)
+    return redirect('/postosTrabalho/lista')
+
 
 @login_required
 def view(request, id):
