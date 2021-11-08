@@ -34,7 +34,7 @@
 <img src=""/>
 <hr>
 <h3>Geração de Relatórios</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint3/gifs/relatorio.gif"/>
 <hr>
 <h3>Dashboards de Presença/Eventos</h3>
 <img src=""/>
