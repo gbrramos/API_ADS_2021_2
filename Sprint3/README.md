@@ -31,12 +31,12 @@
 <p></p>
 <hr>
 <h3> Aprovação de Lançamentos </h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint3/gifs/2021-11-08-00-24-20.gif?raw=true"/>
 <hr>
 <h3>Geração de Relatórios</h3>
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint3/gifs/relatorio.gif"/>
 <hr>
 <h3>Dashboards de Presença/Eventos</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint3/gifs/2021-11-08-00-23-40%20(1).gif?raw=true"/>
 <hr>
 
