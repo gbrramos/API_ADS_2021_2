@@ -3,47 +3,27 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from Colaboradores.models import Colaborador
 from QuadroPresenca.models import QuadroPresenca
-from .models import Dashboard
+from QuadroPresenca.models import Dashboard
 from django.contrib import messages
 
 # Create your views here.
 @login_required
 def dash(request):
-    labels = []
+
     data = []
+    labels = []
 
-    quadro = QuadroPresenca.objects.all()
-    colab = Colaborador.objects.filter(tipoDeCobertura = 'fixa', situacaoCadastro = 'Ativo')
-    line = []
-    mat = []
-    x = 0
-    y = 0
-    # for q in quadro:
-    #     arr.append([x] * q.presenca) 
-    #     x+=1
+    dash = Dashboard.objects.all()
+    colab = Colaborador.objects.all().count()
+    for d in dash:
+        data.append(d.quant_presenca)
+        labels.append(d.colaborador.nomeCompleto)
 
-    # x = 0
-    # for c in colab:
-    #     arr.append([x] * c.nomeCompleto) 
-    #     x+=1
-
-    for i in range(colab.count()):
-        for c in colab:
-            line.append(c.nomeCompleto)
-        for j in range(0,1):
-             for q in quadro:
-                 line.append(q.presenca)   
-
-    mat.append(line)
-    print(mat)
-#    if(q.presenca == 1):
-#             data.append("Presente")
-#     labels.append(c.nomeCompleto)
-
-    # print(f'data: {data}, labels:{labels}')
     return render(request, 'dashboard/index.html', {
         'data': data,
         'labels': labels,
+        'numColab': colab,
+        'start': colab - 20
     })
 
 

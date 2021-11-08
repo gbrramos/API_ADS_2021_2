@@ -24,6 +24,42 @@
         <p>Endereço: {{ contrato.cliente.endereco }}</p>
         <p>Contato: {{ contrato.cliente.contato }}</p>
     </div>
+    <hr>
+    <h2>Quadro de Presença até o momento: </h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <td> Colaboradores</td>
+              {% for d in dia %}
+                <td>{{ d.dia }}</td>
+              {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+    
+          {% for c in colaboradores %}
+          <tr>
+    
+            <td scope="col"> {{ c.nomeCompleto }}</td>
+    
+            {% for p in presencas %}
+            
+            {% if p.colaboradores_id == c.id %}
+            {% if p.presenca == 1 %}
+            <td scope="col">P</td>
+            {% else %}
+            <td scope="col">F</td>
+            {% endif %}
+    
+            {% endif %}
+            {% endfor %}
+          </tr>
+    
+          {% endfor %}
+    
+    
+        </tbody>
+      </table>
 </body>
 
 </html>

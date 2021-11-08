@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     # My Apps
     'Alocacoes',
     'Clientes',
-    'Dashboard',
     'Colaboradores',
     'Contratos',
     'PostosDeTrabalho',
     'QuadroPresenca',
+    'Dashboard',
     'Usuarios.apps.UsuariosConfig',
 ]
 
@@ -144,6 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #Configurações de Autenticação
-LOGIN_REDIRECT_URL = "colaborador-list"
+LOGIN_REDIRECT_URL = 'dash'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'

@@ -24,3 +24,11 @@ class QuadroPresenca(models.Model):
 
     def __int__(self):
         return self.colaboradores
+
+
+class Dashboard(models.Model):
+    colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
+    quant_presenca = models.IntegerField()
+
+    def __int__(self):
+        return self.quant_presenca

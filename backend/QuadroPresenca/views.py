@@ -8,7 +8,7 @@ from Colaboradores.views import colaboradorList
 from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
 from django.views.generic.list import ListView
-from .models import Data, QuadroPresenca
+from .models import Data, QuadroPresenca, Dashboard
 from PostosDeTrabalho.models import PostoDeTrabalho
 from Colaboradores.models import Colaborador
 from Alocacoes.models import Alocacao
@@ -78,7 +78,6 @@ def novaData(request,id):
     col = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
     form = DataForm(request.POST)
     alocacao = Alocacao.objects.all()
-    print(f' Alocacoes: {alocacao}')
     return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col, 'postos': postos, 'data': data, 'flutuante': flutuante})
 
 @login_required
@@ -107,8 +106,29 @@ def storeData(request, id):
         #quadro com esses dados + a insercao do campo id_data
         quadro = QuadroPresenca.objects.get(id=dataQuadro)
         quadro.data_id.add(sqlData.id)
+    dash = Dashboard.objects.all()
+    cDash = len(dash)
+    sqlDash = []
+    
+    if cDash >= 1:
+        for i in id_cols:
+            presenca = request.POST.get(f'presenca_{i.id}')
+            if presenca is not None:
+                d = Dashboard.objects.get(colaborador=i)
+                if i.id == d.colaborador.id:
+                    quant = d.quant_presenca
+                    quant = quant + 1
+                    Dashboard.objects.filter(colaborador=i).update(colaborador=i, quant_presenca=quant)
+                else:
+                    Dashboard.objects.create(colaborador=i, quant_presenca=1)
+    else:
+        
+        for i in id_cols:
+            presenca = request.POST.get(f'presenca_{i.id}')
+            if presenca is not None:
+                Dashboard.objects.create(colaborador=i, quant_presenca=1)
 
-    return redirect('../novaData/10')
+    return redirect('../lista')
  
 #ainda nao estao sendo usadas
 # def viewQuadro(request,id):

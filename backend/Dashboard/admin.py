@@ -1,5 +1,5 @@
 from django.contrib import admin
+from QuadroPresenca.models import Dashboard
 
 # Register your models here.
-from .models import Dashboard
 admin.site.register(Dashboard)

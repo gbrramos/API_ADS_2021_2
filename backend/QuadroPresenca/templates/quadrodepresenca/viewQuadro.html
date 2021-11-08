@@ -15,14 +15,10 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th scope="col">A</th>
         <th scope="col"> Colaboradores</th>
-
-       
           {% for d in dia %}
             <th>{{ d.dia }}</th>
-        {% endfor %}
-
+          {% endfor %}
       </tr>
     </thead>
     <tbody>
@@ -55,11 +51,23 @@
       <a href="../editar/{{q.id}}">
         <button type="button" class="btn btn-warning" >Editar Quadro</button>
       </a>
-      <a class="btn btn-primary" href="../aprovar/{{q.id}}">
+      <a class="btn btn-primary" href="#" onclick="swal()">
         <span>Aprovar Quadro</span>
       </a>
     {% endfor %}
   {%endif%}
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function swal(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Quadro de Presença aprovado',
+      showConfirmButton: true,
+    }).then((result) => {
+      window.location.href = '{% url 'quadro-presenca-lista' %}'
+    });
+  }
 
+</script>
 {% endblock %}

@@ -10,7 +10,10 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
 from html import escape
-
+from QuadroPresenca.models import QuadroPresenca
+from PostosDeTrabalho.models import PostoDeTrabalho
+from QuadroPresenca.models import Data, QuadroPresenca
+from Colaboradores.models import Colaborador
 from .models import Contrato
 
 # Create your views here.
@@ -92,6 +95,58 @@ def delete(request, id):
 
 @login_required
 def gerarRelatorio(request, id):
+    posto = PostoDeTrabalho.objects.filter(id=id)
+    quadro = QuadroPresenca.objects.order_by('-id').first()
+    data = Data.objects.all().order_by('-id').first()
+    cols = Colaborador.objects.filter(posto_id=id,tipoDeCobertura='fixa')
+    dataQuadro = quadro.data_id.all()
+    diaMes = Data.objects.filter(month=data.month)
+    colabQuadro = QuadroPresenca.objects.filter(data_id=data.id)
+    quadroP = QuadroPresenca.objects.all()
+    colaboradores = Colaborador.objects.all()
+    data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
+    data_id = []
+    for d in data:
+        data_id.append(d.quadropresenca_id)
+    print(data_id)
+    p = []   
+    presencas = {}
+    for d in diaMes:
+        q = QuadroPresenca.objects.filter(data_id=d.id)
+        for quadro in q:
+            if quadro.presenca == True:
+                p.append('P')
+            if quadro.presenca == False:
+                p.append('F')
+    # pPerCol = int(len(p)/len(q))
+    print(f'Quantidade de presencas ao longo de {len(diaMes)} dia(s) = {len(p)}')  
+    print(f'Numeros de quadros por dia: {len(q)}')
+    # print(pPerCol)  
+    dia = len(diaMes)
+    i = 0
+    #Quantidade de quadros por dia
+    qPerDia = len(q)
+    #Caso só houver um dia registrado, as presenças são todas alocadas neste dia
+    if len(diaMes) == 1:
+        for d in diaMes:
+            presencas[d.dia] = p
+    else:
+    #Caso haja mais de um dia, as presencas são alocadas por dia
+        #Para cada dia no mes:
+        for d in cols:
+            #Em cada chave do dicionario(que são representadas em dia), registra as Presencas/Faltas dos colaboradores no dia
+            presencas[int(d.id)] = p[i:qPerDia]
+            # a cada dia a variavel "i"(que inicia em zero) recebe a posicao da ultima presenca registrada
+            i = qPerDia
+            # a variavel "qPerdia" recebe qPerdia + a quantidade de quadros por dia
+            qPerDia+=len(q)
+    # print(presencas)
+   
+    colabIds = []
+    for colab in cols:
+        colabIds.append(colab.id)
+    print(quadroP.values())
+
     #Retrieve data or whatever you need
     contrato = get_object_or_404(Contrato, pk=id)
     print(f"Request: {contrato}")
@@ -100,6 +155,10 @@ def gerarRelatorio(request, id):
             {
                 'pagesize':'A4',
                 'contrato': contrato,
+                'colaboradores': cols,
+                'presencas': quadroP, 
+                'dia': diaMes, 
+                'data_id': data_id
             }
         )
 
