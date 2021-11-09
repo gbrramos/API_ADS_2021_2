@@ -5,19 +5,23 @@
     margin: 0 0;
   }
   .card{
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 20px;
+    display: inline-block;
   }
 </style>
 <div class="container" style="width: 100%;">
   <div class="row" style="margin-top: 100px">
+    {% if countData == 0 %}
+
+    {% else %}
   <div class="card" style="background-color: #ff009b45;">
     <div class="card-body">
     <h3 class="text-center">Gráfico de presença geral</h3>
     <canvas id="pie-geral" style="width: 100%; height: auto;"></canvas>
     </div>
   </div>
-  
+    {% endif %}
   <div class="card">
     <div class="card-body">
       <h3 class="text-center">Total de colaboradores</h3>

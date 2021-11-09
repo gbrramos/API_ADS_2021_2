@@ -23,7 +23,8 @@ def dash(request):
         'data': data,
         'labels': labels,
         'numColab': colab,
-        'start': colab - 20
+        'countData': len(data),
+        'start': colab + 20
     })
 
 

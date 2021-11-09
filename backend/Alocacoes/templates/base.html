@@ -17,8 +17,8 @@
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
 
-        <div class="header__img">
-            <img src="assets/img/perfil.jpg" alt="">
+        <div style="color: #fff">
+            Olá, {{ request.user.username }}
         </div>
     </header>
     {% if request.user.is_authenticated %}

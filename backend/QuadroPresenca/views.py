@@ -109,20 +109,23 @@ def storeData(request, id):
     dash = Dashboard.objects.all()
     cDash = len(dash)
     sqlDash = []
-    
     if cDash >= 1:
         for i in id_cols:
-            presenca = request.POST.get(f'presenca_{i.id}')
-            if presenca is not None:
+            # Erro abaixo - Cadastra dois
+            if i.id in dash.colaborador.id:
                 d = Dashboard.objects.get(colaborador=i)
-                if i.id == d.colaborador.id:
+                
+                presenca = request.POST.get(f'presenca_{i.id}')
+                if presenca is not None:
                     quant = d.quant_presenca
                     quant = quant + 1
                     Dashboard.objects.filter(colaborador=i).update(colaborador=i, quant_presenca=quant)
-                else:
+                    
+            else:
+                presenca = request.POST.get(f'presenca_{i.id}')
+                if presenca is not None:
                     Dashboard.objects.create(colaborador=i, quant_presenca=1)
     else:
-        
         for i in id_cols:
             presenca = request.POST.get(f'presenca_{i.id}')
             if presenca is not None:
