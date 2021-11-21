@@ -43,7 +43,8 @@ def novo(request):
 @login_required
 def aprovarQuadro(request, id):
     quadro = get_object_or_404(QuadroPresenca, pk=id)
-    quadro.update(is_approved=True)
+    quadro.update(is_approved=1)
+    quadro.save()
     return redirect('/postosTrabalho/lista')
 
 
@@ -150,10 +151,7 @@ def view_quadros(request,id):
     quadroP = QuadroPresenca.objects.all()
     colaboradores = Colaborador.objects.all()
     data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
-    data_id = []
-    for d in data:
-        data_id.append(d.quadropresenca_id)
-    print(data_id)
+    
     p = []   
     presencas = {}
     for d in diaMes:
@@ -190,9 +188,8 @@ def view_quadros(request,id):
     colabIds = []
     for colab in cols:
         colabIds.append(colab.id)
-    print(quadroP.values())
 
-    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'presencas': quadroP, 'dia': diaMes, 'data_id': data_id, 'posto':posto})
+    return render(request, 'quadrodepresenca/viewQuadro.html', {'colaboradores': cols, 'presencas': quadroP, 'dia': diaMes,  'posto':posto})
 #        for q in quadro:
 #            dia.append(q.presenca)
 #        matrizPresenca.append(dia)
@@ -204,13 +201,21 @@ def view_quadros(request,id):
 
 @login_required
 def edit(request, id):
-    posto = PostoDeTrabalho.objects.filter(id=id)
+    posto = PostoDeTrabalho.objects.get(id=id)
     quadroP = QuadroPresenca.objects.all()
     data = Data.objects.all().order_by('-id').first()
     diaMes = Data.objects.filter(month=data.month)
     data = Data.objects.raw("SELECT * FROM quadropresenca_quadropresenca_data_id")
     colaboradores = Colaborador.objects.raw('SELECT * FROM colaboradores_colaborador WHERE tipoDeCobertura = "fixa" and posto_id = %s', [id])
     return render(request, 'quadrodepresenca/editar.html', {'posto':posto, 'data':data, 'presencas': quadroP, 'colaboradores': colaboradores, 'dia': diaMes})
+
+@login_required
+def updateQuadro(request, id):
+    data = request.POST
+    for i in data:
+        print(f"i: {data[i]}")
+    return redirect('../viewQuadros/' + str(id))
+
 
 
 @login_required

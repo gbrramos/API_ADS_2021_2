@@ -4,21 +4,22 @@
 
 {% block content %}
 <hr>
-<div class="table-responsive">
+<form method="POST" action="../updateData/{{posto.id}}">
+  {% csrf_token %} 
+  <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col"> Colaboradores</th>
-  
-         
-            {% for d in dia %}
-              <th>{{ d.dia }}</th>
+
+
+          {% for d in dia %}
+          <th>{{ d.dia }}</th>
           {% endfor %}
-  
+
         </tr>
       </thead>
       <tbody>
-  
         {% for c in colaboradores %}
         <tr>
           <td scope="col"> {{ c.nomeCompleto }}</td>
@@ -26,23 +27,25 @@
           {% if p.colaboradores_id == c.id %}
           {% if p.presenca == 1 %}
           <td>
-              <input type="checkbox" checked>
-          </td>   
+            <input type="checkbox" name="{{p.id}}" checked>
+          </td>
           {% else %}
 
           <td scope="col">
-            <input type="checkbox">
+            <input type="checkbox" name="{{p.id}}">
           </td>
           {% endif %}
-  
+
           {% endif %}
           {% endfor %}
         </tr>
-  
+
         {% endfor %}
-  
-  
+
+
       </tbody>
     </table>
-    <button type="button" class="btn btn-success">Salvar Alterações</button>
+  </div>
+  <button type="submit" class="btn btn-success">Salvar Alterações</button>
+</form>
 {% endblock %}

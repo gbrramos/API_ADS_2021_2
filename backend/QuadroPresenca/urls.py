@@ -7,6 +7,7 @@ urlpatterns = [
     path('novo/', views.novo, name="quadro-presenca-novo"),
     path('novaData/<int:id>', views.novaData, name="quadro-presenca-novaData"),
     path('storeData/<int:id>', views.storeData, name="quadro-presenca-storeData"),
+    path('updateData/<int:id>', views.updateQuadro, name="quadro-presenca-updateData"),
     path('viewQuadros/<int:id>', views.view_quadros, name="view_quadros"),
     # path('aprovarQuadro/<int:id>', views.aprovarQuadro, name="aprovar_quadro"),
     path('editar/<int:id>', views.edit, name="quadro-presenca-editar"),

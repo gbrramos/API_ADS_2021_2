@@ -10,15 +10,15 @@
 
   <!--Quadro-->
 </div>
-<h1><i class="fas fa-address-card"></i><strong> Quadro de Presença Outubro/2021: {{ posto.0 }}</strong></h1>
+<h1><i class="fas fa-address-card"></i><strong> Quadro de Presença: {{ posto.0 }}</strong></h1>
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
         <th scope="col"> Colaboradores</th>
-          {% for d in dia %}
-            <th>{{ d.dia }}</th>
-          {% endfor %}
+        {% for d in dia %}
+        <th>{{ d.dia }}/{{ d.month }}</th>
+        {% endfor %}
       </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
         <td scope="col"> {{ c.nomeCompleto }}</td>
 
         {% for p in presencas %}
-        
+
         {% if p.colaboradores_id == c.id %}
         {% if p.presenca == 1 %}
         <td scope="col">P</td>
@@ -47,19 +47,19 @@
     </tbody>
   </table>
   {% if request.user.groups.all.0.name == 'Tatico' %}
-    {% for q in posto %}  
-      <a href="../editar/{{q.id}}">
-        <button type="button" class="btn btn-warning" >Editar Quadro</button>
-      </a>
-      <a class="btn btn-primary" href="#" onclick="swal()">
-        <span>Aprovar Quadro</span>
-      </a>
-    {% endfor %}
+  {% for q in posto %}
+  <a href="../editar/{{ q.id }}">
+    <button type="button" class="btn btn-warning">Editar Quadro</button>
+  </a>
+  <a class="btn btn-primary" href="#" onclick="swal()">
+    <span>Aprovar Quadro</span>
+  </a>
+  {% endfor %}
   {%endif%}
 </div>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  function swal(){
+  function swal() {
     Swal.fire({
       icon: 'success',
       title: 'Quadro de Presença aprovado',
@@ -68,6 +68,5 @@
       window.location.href = "{% url 'quadro-presenca-lista' %}"
     });
   }
-
 </script>
 {% endblock %}
