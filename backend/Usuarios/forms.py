@@ -1,12 +1,12 @@
 from django import forms
 from django.db.models import fields
-from .models import Usuarios
+from django.contrib.auth.models import User
 
 class UsuariosForm(forms.ModelForm):
 
     class Meta:
-        model =  Usuarios
-        fields = ('nome', 'username', 'password', 'perfil')
+        model =  User
+        fields = ('username', 'password',  'email', 'is_superuser')
 
         widgets = {
         'password': forms.PasswordInput(),

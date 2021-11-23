@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-{% block title %}Editando '{{ usuario.username }}'{% endblock %}
+{% block title %}Editando '{{ usuarios.username }}'{% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Editando '{{ usuario.username }}'</h1>
+    <h1>Editando '{{ usuarios.username }}'</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input type="submit" class="btn btn-success" value="Editar">
     </form>
 

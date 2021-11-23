@@ -4,8 +4,12 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Usuario {{ user.nome }}</h1>
-    <p>{{ user.username }}</p>
-    <p>{{ user.perfil }}</p>
+    <h1>{{ user.username }}</h1>
+    <p>{{ user.email }}</p>
+    {% if user.is_superuser == 1 %}
+        <p>Perfil Tático</p>
+    {% else %}
+        <p>Perfil Operacional</p>
+    {% endif %}
 </div>
 {% endblock %}

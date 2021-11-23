@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.hashers import make_password
 from .models import Usuarios
 
 # Create your views here.
@@ -37,14 +38,20 @@ def lista(request):
 
 @login_required
 def editar(request, id):
-    user = get_object_or_404(Usuarios, pk=id)
+    user = get_object_or_404(User, pk=id)
     form = UsuariosForm(instance=user)
 
     if(request.method == 'POST'):
-        form = UsuariosForm(request.POST, instance=user)
 
+        form = UsuariosForm(request.POST, instance=user)
         if(form.is_valid()):
-            user.save()
+            User.objects.filter(pk=id).update(username=request.POST['username'])
+            User.objects.filter(pk=id).update(password=make_password(request.POST['password']))
+            User.objects.filter(pk=id).update(email=request.POST['email'])
+            if request.POST['is_superuser'] == 'on':
+                User.objects.filter(pk=id).update(is_superuser=True)
+            else:
+                User.objects.filter(pk=id).update(is_superuser=False)
             return redirect('/usuarios/lista')
         else:
             return render(request, 'usuarios/editar.html', {'form': form, 'usuarios': user})
@@ -53,12 +60,12 @@ def editar(request, id):
 
 @login_required
 def view(request, id):
-    user = get_object_or_404(Usuarios, pk=id)
+    user = get_object_or_404(User, pk=id)
     return render(request, 'usuarios/view.html', {'user': user})
 
 @login_required
 def delete(request, id):
-    user = get_object_or_404(Usuarios, pk=id)
+    user = get_object_or_404(User, pk=id)
     user.delete()
     messages.info(request, 'Usuário deletado com Sucesso!')
     return redirect('/usuarios/lista')
