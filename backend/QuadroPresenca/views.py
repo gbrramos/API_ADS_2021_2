@@ -209,13 +209,17 @@ def edit(request, id):
     colaboradores = Colaborador.objects.raw('SELECT * FROM colaboradores_colaborador WHERE tipoDeCobertura = "fixa" and posto_id = %s', [id])
     return render(request, 'quadrodepresenca/editar.html', {'posto':posto, 'data':data, 'presencas': quadroP, 'colaboradores': colaboradores, 'dia': diaMes})
 
-@login_required
-def updateQuadro(request, id):
-    data = request.POST
-    for i in data:
-        print(f"i: {data[i]}")
-    return redirect('../viewQuadros/' + str(id))
 
+@login_required
+def updateQuadro(request, rid):
+    data = request.POST
+    # Arrumar isso
+    # for i in data:
+    #     if(data[i] == 'on'):
+    #         QuadroPresenca.objects.filter(pk=i).update(presenca=1)
+    #     else:
+    #         QuadroPresenca.objects.filter(pk=i).update(presenca=0)
+    return redirect('../viewQuadros/' + str(rid))
 
 
 @login_required
