@@ -4,9 +4,47 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Posto de Trabalho {{ posto.descricao }}</h1>
-    <p>{{ posto.escala }}</p>
-    <p>{{ posto.numero_cadastro }}</p>
+    <hr>
+    <p></p>
+    <h2>Informações <span class="badge bg-secondary">{{posto.id}}</span></h2>
 
+    <ol class="list-group list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Posto de Trabalho</div>
+            {{ posto.descricao }}
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Escala</div>
+              {{ posto.escala }}
+            </div>
+          </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Número de Cadastro</div>
+            <span class="badge bg-warning text-dark">{{ posto.numero_cadastro }}</span>
+          </div>
+    
+        </li>       
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Data de Criação</div>
+              <span class="badge rounded-pill bg-secondary">{{posto.created_at}}</span>
+            </div>
+            <span class="badge bg-primary rounded-pill">i</span>
+
+        </li>         
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Última Atualização em</div>
+              <span class="badge rounded-pill bg-secondary">{{posto.updated_at}}</span>
+            </div>
+            <span class="badge bg-primary rounded-pill">i</span>
+
+        </li>  
+      </ol>
 </div>
 {% endblock %}

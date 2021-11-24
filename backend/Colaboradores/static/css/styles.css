@@ -197,7 +197,7 @@ a{
   text-decoration: none;
 }
 .add-div {
-    background-color: #2476e2;
+    background-color: #0674fc;
     cursor: pointer;
     display: inline-block;
     color: #fff;
@@ -242,21 +242,22 @@ a{
     font-size: 20px;
     height: 50px;
     padding-top: 10px;
-    border: 1px dashed #ccc;
+    border: 1px rgb(121, 121, 121) double;
 }
 
-.bx.bx-trash, .bx.bx-edit-alt {
+.fas.fa-trash,  .fas.fa-edit {
     cursor: pointer;
     margin: 5px;
-    font-size: 20px;
+    font-size: 15px;
     float: right;
 }
-.bx.bx-trash {
-    color: #db1e47;
+.fas.fa-trash {
+    color: #cc0505;
+    
 }
 
-.bx.bx-edit-alt {
-    color: #13c43f;
+.fas.fa-edit {
+    color: #3ac229;
 }
 
 /* Messages */

@@ -4,12 +4,37 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>{{ user.username }}</h1>
-    <p>{{ user.email }}</p>
-    {% if user.is_superuser == 1 %}
-        <p>Perfil Tático</p>
-    {% else %}
-        <p>Perfil Operacional</p>
-    {% endif %}
+
+    <hr>
+    <p></p>
+    <h2>Informações <span class="badge bg-secondary">{{user.id}}</span></h2>
+
+    <ol class="list-group list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Username</div>
+            {{ user.username }}
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Email</div>
+            <span class="badge bg-warning text-dark">{{ user.email }}</span>
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Perfil</div>
+            {% if user.is_superuser == 1 %}
+            <p>Perfil Tático</p>
+            {% else %}
+                <p>Perfil Operacional</p>
+            {% endif %}
+            </div>
+    
+        </li>   
+      </ol>
 </div>
 {% endblock %}

@@ -21,14 +21,29 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <ul class="colaborador-list">
-        {% for colaborador in colaboradores %}
-        <li class="colaborador-item">
-            <span><a href="colaborador/{{colaborador.id}}">{{colaborador.nomeCompleto}}</a></span>
-            <a href="deleteColaborador/{{colaborador.id}}"><span><i class='bx bx-trash'></i></span></a>
-            <a href="editColaborador/{{colaborador.id}}"><span><i class='bx bx-edit-alt' ></i></span></a>
-        </li>
-        {% endfor %}
-    </ul>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nomes</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for colaborador in colaboradores %}
+            
+            <tr>
+                
+                <th scope="row"><a href="colaborador/{{colaborador.id}}">{{ colaborador.id}}</a></th>
+                <td><a href="colaborador/{{colaborador.id}}">{{ colaborador.nomeCompleto}}</a></td>
+                <td>
+                    <a href="deleteColaborador/{{colaborador.id}}"><span><i class="fas fa-trash"></i></span></a>
+                    <a href="editColaborador/{{colaborador.id}}"><span><i class="fas fa-edit"></i></span></a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+      </table>
 </div>
 {% endblock %}

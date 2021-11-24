@@ -4,10 +4,61 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Cliente: {{ cliente.nome_fantasia }}</h1>
-    <p>Razão Social: {{ cliente.razao_social }}</p>
-    <p>CNPJ: {{ cliente.cnpj }}</p>
-    <p>Contato: {{ cliente.contato }}</p>
-    <p>Endereço: {{ cliente.endereco }}</p>
+    <hr>
+    <p></p>
+    <h2>Informações <span class="badge bg-secondary">{{cliente.id}}</span></h2>
+
+    <ol class="list-group list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Cliente</div>
+            {{ cliente.nome_fantasia }}
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Razão Social</div>
+            <span class="badge bg-warning text-dark">{{ cliente.razao_social }}</span>
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">CNPJ</div>
+            {{ cliente.cnpj }}
+          </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Contato</div>
+              {{ cliente.contato }}
+            </div>
+    
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Endereço</div>
+              {{ cliente.endereco }}
+            </div>
+        </li>         
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Data de Criação</div>
+              <span class="badge rounded-pill bg-secondary">{{cliente.created_at}}</span>
+            </div>
+            <span class="badge bg-primary rounded-pill">i</span>
+
+        </li>         
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Última Atualização em</div>
+              <span class="badge rounded-pill bg-secondary">{{cliente.updated_at}}</span>
+            </div>
+            <span class="badge bg-primary rounded-pill">i</span>
+
+        </li>  
+      </ol>  
 </div>
 {% endblock %}

@@ -4,17 +4,83 @@
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>{{ colaborador.nomeCompleto}}</h1>
-    <p><strong>CPF: </strong>{{colaborador.cpf}}</p>
-    <p><strong>Matrícula: </strong>{{colaborador.matricula}}</p>
-    <p><strong>Nome Completo: </strong>{{colaborador.nomeCompleto}}</p>
-    <p><strong>Data Admissão: </strong>{{colaborador.dataAdmissao}}</p>
-    <p><strong>Posto de Trabalho Relacionado: </strong>{{colaborador.posto}}</p>
-    <p><strong>Data de Demissão: </strong>{{colaborador.dataDemissao}}</p>
-    <p><strong>Função: </strong>{{colaborador.funcao}}</p>
-    <p><strong>Situação do Cadastro: </strong>{{colaborador.situacaoCadastro}}</p>
-    <p><strong>Data de Criação: </strong>{{colaborador.created_at}}</p>
-    <p><strong>Ultima Data de Atualização: </strong>{{colaborador.updated_at}}</p>
+<hr>
+<p></p>
+<h2>Informações <span class="badge bg-secondary">{{colaborador.id}}</span></h2>
+
+<ol class="list-group list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Nome Completo</div>
+        {{ colaborador.nomeCompleto}}
+      </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Matrícula</div>
+        <span class="badge bg-warning text-dark">{{colaborador.matricula}}</span>
+      </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">CPF</div>
+        {{colaborador.cpf}}
+      </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Data de Admissão</div>
+          {{colaborador.dataAdmissao}}
+        </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Data de Demissão</div>
+          {{colaborador.dataDemissao}}
+        </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Função</div>
+          {{colaborador.funcao}}
+        </div>
+
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Posto de Trabalho</div>
+          {{colaborador.posto}}
+        </div>
+
+    </li>    
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Situação de Cadastro</div>
+          {{colaborador.situacaoCadastro}}
+        </div>
+
+    </li>    
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Data de Criação</div>
+          <span class="badge bg-secondary">{{colaborador.created_at}}</span>
+        </div>
+        <span class="badge bg-primary rounded-pill">i</span>
+    </li>    
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Última Atualização em</div>
+          <span class="badge bg-secondary">{{colaborador.updated_at}}</span>
+        </div>
+        <span class="badge bg-primary rounded-pill">i</span>
+    </li>
+  </ol>
+  <p></p>
 </div>
 {% endblock %}
 
