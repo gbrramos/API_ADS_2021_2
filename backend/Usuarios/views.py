@@ -33,7 +33,13 @@ def novo(request):
 
 @login_required
 def lista(request):
-    user = User.objects.all()
+        #Search
+    search = request.GET.get('search')
+
+    if search:
+        user = User.objects.filter(username__icontains=search)
+    else:
+        user = User.objects.all()
     return render(request, 'usuarios/lista.html', {'usuarios' : user})
 
 @login_required

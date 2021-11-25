@@ -36,7 +36,13 @@ def store(request):
 
 @login_required
 def lista(request):
-    clientes = Clientes.objects.all()
+        #Search
+    search = request.GET.get('search')
+
+    if search:
+        clientes = Clientes.objects.filter(nome_fantasia__icontains=search)
+    else:
+        clientes = Clientes.objects.all()
     return render(request, 'clientes/lista.html', {'clientes' : clientes})
 
 @login_required

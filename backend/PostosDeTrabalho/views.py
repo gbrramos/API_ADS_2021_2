@@ -22,7 +22,13 @@ def novo(request):
 
 @login_required
 def lista(request):
-    postos = PostoDeTrabalho.objects.all().order_by('-created_at')
+        #Search
+    search = request.GET.get('search')
+
+    if search:
+        postos = PostoDeTrabalho.objects.filter(descricao__icontains=search)
+    else:
+        postos = PostoDeTrabalho.objects.all().order_by('-created_at')
     return render(request, 'postosdetrabalho/postosTrabalhoList.html', {'postos' : postos})
 
 @login_required

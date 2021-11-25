@@ -25,7 +25,14 @@ def novocolaborador(request):
 
 @login_required
 def colaboradorList(request):
-    colaboradores = Colaborador.objects.all().order_by('-created_at')
+    #Search
+    search = request.GET.get('search')
+
+    if search:
+        colaboradores = Colaborador.objects.filter(nomeCompleto__icontains=search)
+    else:
+        colaboradores = Colaborador.objects.all().order_by('-created_at')
+    
     return render(request, 'colaboradores/colaboradoresList.html', {'colaboradores' : colaboradores})
 
 @login_required

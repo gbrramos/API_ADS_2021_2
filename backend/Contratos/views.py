@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+
+from Clientes.models import Clientes
 from .forms import ContratosForms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -33,7 +35,16 @@ def novo(request):
 
 @login_required
 def lista(request):
-    contratos = Contrato.objects.all()
+        #Search
+    search = request.GET.get('search')
+
+    if search:
+        contratos = Clientes.objects.filter(razao_social__icontains=search)
+        for c in contratos:
+            print(c.id)
+            contratos = Contrato.objects.filter(cliente_id=c.id)
+    else:
+        contratos = Contrato.objects.all()
     return render(request, 'contratos/contratosList.html', {'contratos' : contratos})
 
 @login_required

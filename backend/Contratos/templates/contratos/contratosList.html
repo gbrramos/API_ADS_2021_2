@@ -11,8 +11,9 @@
         </div>
     </a>
     <div class="col-9 search-div">
-        <input type="text" class="form-control" id="search" placeholder="Digite o nome do colaborador">
-        <i class='bx bx-search-alt' ></i>
+        <form method="GET" id="search-form">
+            <input class="form-control" type="text" id="search" name="search" placeholder="Digite e pressione enter" value="{{request.GET.search}}">
+        </form>
     </div>
     {% if messages %}
         <ul class="messages">
