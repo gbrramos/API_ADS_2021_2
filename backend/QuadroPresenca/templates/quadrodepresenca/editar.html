@@ -27,12 +27,12 @@
           {% if p.colaboradores_id == c.id %}
           {% if p.presenca == 1 %}
           <td>
-            <input type="checkbox" name="{{p.id}}" checked>
+            <input type="checkbox" name="data_{{p.id}}" checked>
           </td>
           {% else %}
 
           <td scope="col">
-            <input type="checkbox" name="{{p.id}}">
+            <input type="checkbox" name="data_{{p.id}}">
           </td>
           {% endif %}
 

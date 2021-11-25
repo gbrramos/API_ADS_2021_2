@@ -213,8 +213,10 @@ def edit(request, id):
 @login_required
 def updateQuadro(request, rid):
     data = request.POST
+    print(data)
     # Arrumar isso
     # for i in data:
+    #     print(data[i])
     #     if(data[i] == 'on'):
     #         QuadroPresenca.objects.filter(pk=i).update(presenca=1)
     #     else:
