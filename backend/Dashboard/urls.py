@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.dash, name='dash'),
     path('', views.colaboradores, name='cols'),
+    # path('multas', views.dash.multas, name='dash')
 ]
