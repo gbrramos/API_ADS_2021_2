@@ -34,17 +34,20 @@
     </div>
   </div>
     {% endif %}
-  <div class="card">
+  <div class="card" style="background-color: #fbff0045;">
     <div class="card-body">
       <h3 class="text-center">Total de colaboradores</h3>
       <h1 id="value" class="text-center" style="font-size: 72px">{{numColab}}</h1>
     </div>
   </div>
-  <a href="#" class="card" style="background-color: #00e1ff45;">
+  <a href="multas" class="card" style="background-color: #00e1ff45;">
     <div class="card-body">
-      <h3 class="text-center">Multa</h3>
+      <h3 class="text-center">Multas</h3>
       <h1 id="value" class="text-center" style="font-size: 83px;"><i class="fas fa-bell"></i></h1>
-      <span id="notify-icon">5</span>
+      {% if multas > 0 %}
+      <span id="notify-icon">{{multas}}</span>
+      {% endif %}
+      <center><span><small>Número de Multas a pagar: {{multas}}</small></span></center>
     </div>
   </div>
 </div>

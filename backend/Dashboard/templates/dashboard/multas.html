@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="width: 100vw;">
+    <h1 style="margin-top: 100px">Multas a pagar</h1>
+    <hr>
+    {% if contratos_multa.count > 0 %}
+    <ul>
+        {% for i in contratos_multa %}
+
+        <li>{{ i.descricao }}</li>
+
+        {% endfor %}
+
+    </ul>
+    {% else %}
+    <center>
+        <h4><b>Não existem multas a pagar</b></h4>
+    </center>
+    {% endif %}
+</div>
+
+{% endblock %}

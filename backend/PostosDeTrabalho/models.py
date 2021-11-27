@@ -9,6 +9,7 @@ class PostoDeTrabalho(models.Model):
     descricao = models.TextField()
     escala = models.CharField(max_length=255)
     numero_cadastro = models.IntegerField()
+    limites_multa = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

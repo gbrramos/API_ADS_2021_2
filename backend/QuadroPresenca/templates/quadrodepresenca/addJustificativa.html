@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Adicionar Justificativa{% endblock %}
+
+{% block content %}
+<hr>
+<div class="table-responsive">
+    <h1>Adicionar Justificativa</h1>
+    <form action="{{arrData.id}}" method="post">
+        {% csrf_token %} 
+        <textarea name="strJustficativa" class="form-control" cols="30" rows="10"></textarea>
+        <button style="margin-top: 10px" type="submit" class="btn btn-success">Enviar</button>
+    </form>
+</div>
+{% endblock %}

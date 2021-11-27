@@ -62,14 +62,6 @@ def delete(request, id):
     return redirect('/postosTrabalho/lista')
 
 
-#def novaData(request, id):
-#    form = DataForm(request.POST)
-#    col = Colaborador.objects.filter(posto_id=id)
-#    if form.is_valid():
-#        data = form.save(commit=False)
-#        data.save()
-#    return TemplateResponse(request, 'quadrodepresenca/novo.html', {'cols': col}) 
-
 
 
 @login_required
@@ -258,3 +250,14 @@ def justificativa(request, id):
     colsFaltas = QuadroPresenca.objects.raw('select  qd.id, qd.dia, qd.month, qd.ano, cc.id, cc.nomeCompleto, qq.presenca from quadropresenca_data qd, quadropresenca_quadropresenca qq, quadropresenca_quadropresenca_data_id qqd,colaboradores_colaborador cc where qd.id = qqd.data_id and qq.id = qqd.quadropresenca_id and qq.colaboradores_id = cc.id and qq.presenca = 0 and cc.posto_id = %s order by cc.nomeCompleto;',[id])
     presenca = QuadroPresenca.objects.all()
     return render(request, 'quadrodepresenca/justificativa.html', {'faltas':colsFaltas, 'dias':dias, 'cols':cols, 'presencas': presenca})  
+
+
+@login_required
+def justificarFalta(request, id):
+    arrData = QuadroPresenca.objects.filter(id=id).first()
+    if request.method == 'POST':
+        strJustficativa = request.POST.get('strJustficativa') 
+        QuadroPresenca.objects.filter(id=id).update(justificativa=strJustficativa)
+        return(redirect('../lista'))
+    else:
+        return render(request, 'quadrodepresenca/addJustificativa.html', {'arrData': arrData})

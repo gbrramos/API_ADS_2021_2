@@ -6,4 +6,4 @@ class PostosDeTrabalhoForms(forms.ModelForm):
 
     class Meta:
         model =  PostoDeTrabalho
-        fields = ('descricao', 'escala', 'numero_cadastro',)
+        fields = ('descricao', 'escala', 'limites_multa', 'numero_cadastro')
