@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404, redirec
 from django.http import HttpResponse
 from Alocacoes.forms import AlocacoesForms
 from django.contrib.auth.decorators import login_required
+import Colaboradores
 from Colaboradores.views import colaboradorList
 from .forms import QuadroDePresencaForm, DataForm
 from django.contrib import messages
@@ -234,3 +235,26 @@ def quadroGeral(request):
     diaMes = Data.objects.filter(month=dataMes.month)
 
     return render(request, 'quadrodepresenca/quadroGeral.html', {'posto':posto, 'presencas': quadro, 'data':data, 'cols': colaboradores, 'id_postos': id_postos, 'dia': diaMes})
+
+@login_required
+def data(request):
+    dia = Data.objects.all()
+    return render(request, 'quadrodepresenca/datas.html', {'dias': dia})
+
+def deleteData(request,id):
+    id_data = get_object_or_404(Data,pk=id)
+    presenca = QuadroPresenca.objects.filter(data_id=id)
+    if presenca:
+        for p in presenca:
+            print(p.id)
+            p.delete()
+    id_data.delete()
+    print(id_data)
+    return redirect('/quadroPresenca/lista')
+
+def justificativa(request, id):
+    dias = Data.objects.all()
+    cols = Colaborador.objects.raw('select * from colaboradores_colaborador cc, quadropresenca_quadropresenca qq where cc.id = qq.colaboradores_id and qq.presenca=0 and cc.posto_id = %s group by cc.id', [id])
+    colsFaltas = QuadroPresenca.objects.raw('select  qd.id, qd.dia, qd.month, qd.ano, cc.id, cc.nomeCompleto, qq.presenca from quadropresenca_data qd, quadropresenca_quadropresenca qq, quadropresenca_quadropresenca_data_id qqd,colaboradores_colaborador cc where qd.id = qqd.data_id and qq.id = qqd.quadropresenca_id and qq.colaboradores_id = cc.id and qq.presenca = 0 and cc.posto_id = %s order by cc.nomeCompleto;',[id])
+    presenca = QuadroPresenca.objects.all()
+    return render(request, 'quadrodepresenca/justificativa.html', {'faltas':colsFaltas, 'dias':dias, 'cols':cols, 'presencas': presenca})  

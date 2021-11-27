@@ -14,4 +14,7 @@ urlpatterns = [
     path('delete/<int:id>', views.delete, name="quadro-presenca-delete"),
     path('view/<int:id>', views.view, name="postos-trabalho-view"),
     path('quadroGeral/', views.quadroGeral, name="quadro-geral"),
+    path('data/', views.data, name="quadro-presenca-data"),
+    path('deleteData/<int:id>', views.deleteData, name="quadro-presenca-apagar-data"),
+    path('justificativa/<int:id>', views.justificativa, name="quadro-presenca-justificativa"),
 ]
