@@ -20,7 +20,7 @@
 <h3>:chart_with_downwards_trend: Burndown Chart </h3>
 <p>Lista de Atividades</p>
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/TempoSprint4.PNG?raw=true" width="400"/>
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/listadeTarefas_sprint4.PNG?raw=true" width="700"/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/listadeTarefas_sprint4.PNG?raw=true" width="900"/>
 
 <p>Gráfico Burndown</p>
 <img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/sprint4_burndown.PNG?raw=true" width="500"/>
