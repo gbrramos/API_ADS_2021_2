@@ -1,6 +1,6 @@
 <h1 align="center">:chart_with_upwards_trend: Sprint 4 :chart_with_upwards_trend:</h1>
 <p align="center">
-<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint3/Sprint3.png?raw=true" width="300px" align:center>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/Sprint4.png?raw=true" width="300px" align:center>
  </p>
 <hr>
 <p align="center">
