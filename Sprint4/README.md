@@ -34,9 +34,14 @@
 <img src=""/>
 <hr>
 <h3>Sistema de Contingência</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/quadro.gif?raw=true"/>
 <hr>
 <h3>Exclusão de Data</h3>
-<img src=""/>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/alterar-data.gif?raw=true"/>
+<hr>
+<h3>Justificativa de Falta</h3>
+<img src="https://github.com/gbrramos/API_ADS_2021_2/blob/main/Sprint4/justificativa.gif?raw=true">
 <hr>
 
+ 
+ 
